@@ -4,6 +4,16 @@ public class Nationality {
     private int nationalityID;
     private String country;
 
+    public Nationality(int id, String nationality) {
+        this.nationalityID = id;
+        this.country = nationality;
+    }
+
+    @Override
+    public String toString() {
+        return country;
+    }
+
     // Getters & Setters
 
     public int getNationalityID() {

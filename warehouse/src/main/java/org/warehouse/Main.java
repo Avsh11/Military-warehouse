@@ -17,8 +17,8 @@ public class Main extends Application {
     }
     public static void main(String[] args) {
         launch(args);
-    } // Koniec metody main.
-} // Koniec klasy Main.
+    }
+}
 
 // Używane biblioteki, JDK, pluginy, zależności:
 // - JDK SE Development Kit 24.0.1 (64 Bit)
@@ -28,5 +28,8 @@ public class Main extends Application {
 // UWAGI (dla mnie):
 // Nie zapomnieć: Dodawanie onAction do przycisków, inputów w fmxl oraz podawania fx:id.
 
+// Do zrobienia: funkcjonalność po stronie admina.
 
-// Do zrobienia na ten moment: dwie metody dla wyświetlania paneli, zrobić dwa panele i dla nich conny.
+// Uporządkować ładnie zmienne w zależności do klasy - na potem najpierw funkcjonalność
+
+// Na samym końcu css i jakkolwiek ładne gui
