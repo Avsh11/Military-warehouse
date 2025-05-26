@@ -1,5 +1,4 @@
 package org.warehouse.controller;
 
-public class MainPanelAdmin {
-
+public class RegisterPanel {
 }

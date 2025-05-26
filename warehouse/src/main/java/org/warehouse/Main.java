@@ -6,8 +6,6 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import java.io.IOException;
 
-import static javafx.application.Application.launch;
-
 public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws IOException {
@@ -24,3 +22,11 @@ public class Main extends Application {
 
 // Używane biblioteki, JDK, pluginy, zależności:
 // - JDK SE Development Kit 24.0.1 (64 Bit)
+// - Reszta użytych zależności/bibliotek/modułów w pom.xml i module-info.
+// - Większość brane z repo maven'a.
+
+// UWAGI (dla mnie):
+// Nie zapomnieć: Dodawanie onAction do przycisków, inputów w fmxl oraz podawania fx:id.
+
+
+// Do zrobienia na ten moment: dwie metody dla wyświetlania paneli, zrobić dwa panele i dla nich conny.
