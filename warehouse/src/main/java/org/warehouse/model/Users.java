@@ -11,6 +11,17 @@ public class Users {
     private int nationalityID;
     private boolean isAdmin;
 
+    // Konstruktor. Użyje do wyświetlania w RemoveUser, ManageFunds
+
+    public Users(int userID, String loginHash, LocalDateTime creationDate, int nationalityID, boolean isAdmin) {
+        this.userID = userID;
+        this.loginHash = loginHash;
+        this.creationDate = creationDate;
+        this.nationalityID = nationalityID;
+        this.isAdmin = isAdmin;
+    }
+
+
     // Getters & Setters
 
     public int getUserID() {

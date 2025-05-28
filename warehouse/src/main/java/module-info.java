@@ -7,5 +7,7 @@ module org.warehouse.c {
     opens org.warehouse to javafx.fxml;
     opens org.warehouse.controller to javafx.fxml;
 
+    opens org.warehouse.model to javafx.base;
+
     exports org.warehouse;
 }

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.warehouse.controller.RemoveUser">
+   <children>
+      <VBox layoutX="25.0" layoutY="60.0" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+         <children>
+            <TableView fx:id="userTable" prefHeight="200.0" prefWidth="200.0">
+              <columns>
+                <TableColumn fx:id="idCol" prefWidth="75.0" text="Id" />
+                <TableColumn fx:id="loginCol" prefWidth="75.0" text="Name" />
+                <TableColumn fx:id="dateCol" prefWidth="75.0" text="creationDate" />
+                <TableColumn fx:id="nationalityCol" prefWidth="75.0" text="NaitonalityID" />
+                <TableColumn fx:id="adminCol" prefWidth="75.0" text="isAdmin" />
+              </columns>
+            </TableView>
+            <Button mnemonicParsing="false" text="REMOVE USER" />
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

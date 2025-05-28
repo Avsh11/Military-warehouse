@@ -33,6 +33,7 @@
             <Label text="LOGIN" />
             <Button fx:id="registerButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#handleRegister" text="ADD" textAlignment="CENTER" />
             <ComboBox fx:id="registerNationality" prefWidth="150.0" />
+            <Button fx:id="previousPanel" mnemonicParsing="false" text="Previous page" onAction="#handlePreviousPanel"/>
          </children>
       </VBox>
    </children>

@@ -26,10 +26,8 @@ public class Main extends Application {
 // - Większość brane z repo maven'a.
 
 // UWAGI (dla mnie):
-// Nie zapomnieć: Dodawanie onAction do przycisków, inputów w fmxl oraz podawania fx:id.
 
-// Do zrobienia: funkcjonalność po stronie admina.
-
-// Uporządkować ładnie zmienne w zależności do klasy - na potem najpierw funkcjonalność
-
-// Na samym końcu css i jakkolwiek ładne gui
+// Dla paneli po stronie administratora:
+// Przycisk wyloguj na panelu głównym
+// Przycisk wstecz w przypadku powyższym przycisk wstecz działa tak samo jak wyloguj po przekieruje do panelu logowania
+// Tak samo po stronie usera.
