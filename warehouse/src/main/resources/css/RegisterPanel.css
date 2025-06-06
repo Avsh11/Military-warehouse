@@ -1,0 +1,97 @@
+.mainPanel {
+    -fx-background-color: #1e1e1e;
+    -fx-background-radius: 20px;
+    -fx-border-radius: 20px;
+    -fx-border-color: transparent;
+}
+.loginLabel {
+    -fx-font-size: 13px;
+    -fx-text-fill: white;
+    -fx-font-family: Arial;
+    -fx-font-weight: bold;
+}
+.loginField {
+    -fx-pref-width: 220px;
+    -fx-max-width: 220px;
+    -fx-min-width: 220px;
+    -fx-background-radius: 8;
+    -fx-border-radius: 8;
+    -fx-font-size: 13px;
+    -fx-padding: 8px;
+}
+.passwordLabel {
+    -fx-font-size: 13px;
+    -fx-text-fill: white;
+    -fx-font-family: Arial;
+    -fx-font-weight: bold;
+}
+.passwordField {
+    -fx-pref-width: 220px;
+    -fx-max-width: 220px;
+    -fx-min-width: 220px;
+    -fx-background-radius: 8;
+    -fx-border-radius: 8;
+    -fx-font-size: 13px;
+    -fx-padding: 8px;
+}
+.retypePasswordLabel {
+    -fx-font-size: 13px;
+    -fx-text-fill: white;
+    -fx-font-family: Arial;
+    -fx-font-weight: bold;
+}
+.retypePasswordField {
+    -fx-pref-width: 220px;
+    -fx-max-width: 220px;
+    -fx-min-width: 220px;
+    -fx-background-radius: 8;
+    -fx-border-radius: 8;
+    -fx-font-size: 13px;
+    -fx-padding: 8px;
+}
+.registerButton {
+    -fx-pref-width: 220px;
+    -fx-max-width: 220px;
+    -fx-min-width: 220px;
+    -fx-background-color: #A9A9A9;
+    -fx-text-fill: white;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 2, 0, 0, 1);
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+    -fx-padding: 8px;
+    -fx-font-size: 13px;
+    -fx-font-family: Arial;
+    -fx-font-weight: bold;
+}
+.nationalityComboBox {
+    -fx-pref-width: 220px;
+    -fx-max-width: 220px;
+    -fx-min-width: 220px;
+    -fx-font-size: 14px;
+    -fx-font-family: "Arial";
+    -fx-background-color: #ffffff;
+    -fx-border-color: #cccccc;
+    -fx-background-radius: 8;
+    -fx-border-radius: 8;
+    -fx-padding: 8px;
+}
+.nationalityComboBox:hover{
+    -fx-border-color: #888;
+}
+.previousButton {
+    -fx-pref-width: 220px;
+    -fx-max-width: 220px;
+    -fx-min-width: 220px;
+    -fx-background-color: #A9A9A9;
+    -fx-text-fill: white;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 2, 0, 0, 1);
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+    -fx-padding: 8px;
+    -fx-font-size: 13px;
+    -fx-font-family: Arial;
+    -fx-font-weight: bold;
+}
+

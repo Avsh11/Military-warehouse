@@ -1,0 +1,48 @@
+.mainPanel {
+    -fx-background-color: #1e1e1e;
+    -fx-background-radius: 20px;
+    -fx-border-radius: 20px;
+    -fx-border-color: transparent;
+}
+.userTable {
+    -fx-background-color: #1e1e1e;
+    -fx-background-radius: 20px;
+    -fx-border-radius: 20px;
+    -fx-border-color: transparent;
+}
+.fundsLabel {
+    -fx-font-size: 13px;
+    -fx-text-fill: white;
+    -fx-font-family: Arial;
+    -fx-font-weight: bold;
+}
+.previousButton {
+    -fx-pref-width: 220px;
+    -fx-max-width: 220px;
+    -fx-min-width: 220px;
+    -fx-background-color: #A9A9A9;
+    -fx-text-fill: white;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 2, 0, 0, 1);
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+    -fx-padding: 8px;
+    -fx-font-size: 13px;
+    -fx-font-family: Arial;
+    -fx-font-weight: bold;
+}
+.balanceButton {
+    -fx-pref-width: 220px;
+    -fx-max-width: 220px;
+    -fx-min-width: 220px;
+    -fx-background-color: #A9A9A9;
+    -fx-text-fill: white;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 2, 0, 0, 1);
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+    -fx-padding: 8px;
+    -fx-font-size: 13px;
+    -fx-font-family: Arial;
+    -fx-font-weight: bold;
+}

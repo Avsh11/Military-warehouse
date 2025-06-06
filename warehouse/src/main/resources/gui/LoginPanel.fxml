@@ -11,34 +11,47 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.warehouse.controller.LoginPanel">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="800.0" stylesheets="@../css/LoginPanel.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.warehouse.controller.LoginPanel">
    <children>
-      <VBox alignment="TOP_CENTER" layoutX="401.0" layoutY="14.0" prefHeight="394.0" prefWidth="207.0" AnchorPane.bottomAnchor="3.0" AnchorPane.rightAnchor="3.0" AnchorPane.topAnchor="3.0">
+      <VBox alignment="TOP_CENTER" layoutX="401.0" layoutY="14.0" prefHeight="394.0" prefWidth="207.0" styleClass="rightPanel" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="480.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
          <children>
             <ImageView fitHeight="160.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                <VBox.margin>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="80.0" />
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="60.0" />
                </VBox.margin>
                <image>
                   <Image url="@../image/logo.png" />
                </image>
             </ImageView>
-            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="206.0" text="CLASSIFIED ARMAMENT SUPPLY" textAlignment="CENTER">
+            <Label alignment="CENTER" contentDisplay="CENTER" styleClass="nameLabel1" text="CLASSIFIED" textAlignment="CENTER">
                <padding>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </padding>
                <VBox.margin>
-                  <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+                  <Insets />
                </VBox.margin>
+               <font>
+                  <Font name="Arial Black" size="10.0" />
+               </font>
+            </Label>
+            <Label styleClass="nameLabel2" text=" ARMAMENT" textAlignment="CENTER">
+               <font>
+                  <Font name="Arial Black" size="10.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="3.0" />
+               </VBox.margin>
+            </Label>
+            <Label styleClass="nameLabel3" text="SUPPLY" textAlignment="CENTER">
                <font>
                   <Font name="Arial Black" size="10.0" />
                </font>
             </Label>
          </children>
       </VBox>
-      <VBox alignment="CENTER" layoutX="14.0" layoutY="14.0" prefHeight="371.0" prefWidth="379.0" AnchorPane.bottomAnchor="3.0" AnchorPane.leftAnchor="3.0" AnchorPane.topAnchor="3.0">
+      <VBox alignment="CENTER" layoutX="14.0" layoutY="14.0" prefHeight="371.0" prefWidth="379.0" styleClass="leftPanel" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="340.0" AnchorPane.topAnchor="10.0">
          <children>
-            <Label alignment="CENTER" contentDisplay="CENTER" text="HASH LOGIN" textAlignment="CENTER">
+            <Label alignment="CENTER" contentDisplay="CENTER" styleClass="loginLabel" text="LOGIN" textAlignment="CENTER">
                <VBox.margin>
                   <Insets bottom="5.0" />
                </VBox.margin>
@@ -46,12 +59,12 @@
                   <Font name="Arial Black" size="12.0" />
                </font>
             </Label>
-            <TextField fx:id="hashlogin">
+            <TextField fx:id="hashlogin" styleClass="loginField">
                <VBox.margin>
                   <Insets bottom="10.0" />
                </VBox.margin>
             </TextField>
-            <Label text="PASSWORD">
+            <Label styleClass="passwordLabel" text="PASSWORD">
                <VBox.margin>
                   <Insets bottom="5.0" />
                </VBox.margin>
@@ -59,12 +72,12 @@
                   <Font name="Arial Black" size="12.0" />
                </font>
             </Label>
-            <PasswordField fx:id="password">
+            <PasswordField fx:id="password" styleClass="passwordField">
                <VBox.margin>
                   <Insets bottom="10.0" />
                </VBox.margin>
             </PasswordField>
-            <Button fx:id="loginButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" text="LOG IN" textAlignment="CENTER" onAction="#handleLogin">
+            <Button fx:id="loginButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#handleLogin" styleClass="loginButton" text="LOG IN" textAlignment="CENTER">
                <VBox.margin>
                   <Insets />
                </VBox.margin>

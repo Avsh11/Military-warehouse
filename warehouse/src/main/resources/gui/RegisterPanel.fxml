@@ -9,31 +9,49 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.warehouse.controller.RegisterPanel">
+<AnchorPane prefHeight="500.0" prefWidth="800.0" stylesheets="@../css/RegisterPanel.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.warehouse.controller.RegisterPanel">
    <children>
-      <VBox alignment="CENTER" layoutX="31.0" layoutY="14.0" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+      <VBox alignment="CENTER" layoutX="31.0" layoutY="14.0" prefHeight="200.0" prefWidth="100.0" styleClass="mainPanel" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
          <children>
-            <TextField fx:id="registerLogin">
+            <Label styleClass="loginLabel" text="USERNAME">
                <VBox.margin>
-                  <Insets top="40.0" />
+                  <Insets bottom="5.0" />
+               </VBox.margin></Label>
+            <TextField fx:id="registerLogin" styleClass="loginField">
+               <VBox.margin>
+                  <Insets bottom="5.0" />
                </VBox.margin>
             </TextField>
-            <Label text="PASSWORD" />
-            <PasswordField fx:id="registerPassword">
+            <Label styleClass="passwordLabel" text="PASSWORD">
                <VBox.margin>
-                  <Insets top="40.0" />
+                  <Insets bottom="5.0" />
+               </VBox.margin></Label>
+            <PasswordField fx:id="registerPassword" styleClass="passwordField">
+               <VBox.margin>
+                  <Insets bottom="5.0" />
                </VBox.margin>
             </PasswordField>
-            <Label text="RETYPE PASSWORD" />
-            <PasswordField fx:id="registerConfirmPassword">
+            <Label styleClass="retypePasswordLabel" text="RETYPE PASSWORD">
                <VBox.margin>
-                  <Insets top="40.0" />
+                  <Insets bottom="5.0" />
+               </VBox.margin></Label>
+            <PasswordField fx:id="registerConfirmPassword" styleClass="retypePasswordField">
+               <VBox.margin>
+                  <Insets bottom="10.0" />
                </VBox.margin>
             </PasswordField>
-            <Label text="LOGIN" />
-            <Button fx:id="registerButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#handleRegister" text="ADD" textAlignment="CENTER" />
-            <ComboBox fx:id="registerNationality" prefWidth="150.0" />
-            <Button fx:id="previousPanel" mnemonicParsing="false" text="Previous page" onAction="#handlePreviousPanel"/>
+            <ComboBox fx:id="registerNationality" prefWidth="150.0" styleClass="nationalityComboBox">
+               <VBox.margin>
+                  <Insets bottom="10.0" />
+               </VBox.margin></ComboBox>
+            <Button fx:id="registerButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#handleRegister" styleClass="registerButton" text="ADD NEW USER" textAlignment="CENTER">
+               <VBox.margin>
+                  <Insets bottom="10.0" />
+               </VBox.margin></Button>
+            <Button fx:id="previousPanel" mnemonicParsing="false" onAction="#handlePreviousPanel" styleClass="previousButton" text="PREVIOUS PAGE">
+               <VBox.margin>
+                  <Insets bottom="5.0" />
+               </VBox.margin></Button>
          </children>
       </VBox>
    </children>

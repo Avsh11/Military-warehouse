@@ -1,5 +1,4 @@
 package org.warehouse.controller;
-
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -10,7 +9,6 @@ import javafx.scene.control.*;
 import javafx.stage.Stage;
 import org.warehouse.model.Nationality;
 import org.warehouse.util.DBConnection;
-
 import java.io.IOException;
 import java.sql.*;
 import java.time.LocalDate;
@@ -19,6 +17,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RegisterPanel {
+    // final - zmienna nie będzie zmieniana będzie mieć jedną konkretną przypisaną wartość.
+    public static final int MAX_BALANCE = 999999999;
     @FXML
     private TextField registerLogin;
     @FXML
@@ -27,21 +27,25 @@ public class RegisterPanel {
     private PasswordField registerConfirmPassword;
     @FXML
     private Button registerButton;
+    // Combobox
     @FXML
     private ComboBox<Nationality> registerNationality;
     @FXML
     private Button previousPanel;
 
+    // Metoda wykona się po wczytaniu paneul
+    // Pobiera listę narodowości oprócz ID 1 - bo ta należy do admina i tylko admin ją ma.
+    // Ustawiane w combo boxie.
     @FXML
     private void initialize() {
         List<Nationality> nationalities = new ArrayList<>();
         try (Connection conn = DBConnection.getConnection()) {
             String sql = "SELECT * FROM nationality WHERE NOT nationalityID = 1";
             PreparedStatement loginst = conn.prepareStatement(sql);
-            ResultSet rs = loginst.executeQuery();
-            while (rs.next()) {
-                int id = rs.getInt("nationalityID");
-                String nationality = rs.getString("country");
+            ResultSet resultSet = loginst.executeQuery();
+            while (resultSet.next()) {
+                int id = resultSet.getInt("nationalityID");
+                String nationality = resultSet.getString("country");
                 nationalities.add(new Nationality(id, nationality));
             }
         } catch (SQLException e) {
@@ -54,7 +58,7 @@ public class RegisterPanel {
     }
 
     @FXML
-    private void handleRegister() {
+    private void handleRegister() throws SQLException {
         String login = registerLogin.getText();
         String password = registerPassword.getText();
         String confirmPassword = registerConfirmPassword.getText();
@@ -64,19 +68,24 @@ public class RegisterPanel {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error");
             alert.setHeaderText(null);
-            alert.setContentText("Wszystkie pola muszą być wypełnione.");
+            alert.setContentText("Every field must be filled!.");
             alert.showAndWait();
         } else if (!handlePasswordValidation(password)) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Błąd");
+            alert.setTitle("Error");
             alert.setHeaderText(null);
-            alert.setContentText("Hasło musi mieć minimum 8 znaków, zawierać przynajmniej jedną dużą literę, jedną cyfrę i jeden znak specjalny.");
+            alert.setContentText("Password does not met requirements! Use 8 characters with at least one number, special character and capital letter . . .");
             alert.showAndWait();
-        } else {
-            String sql = "INSERT INTO users (loginHash, password, creationDate, nationalityID, isAdmin) VALUES (?, ?, ?, ?, ?)";
-
+        } else if (handleSameName(login)) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText(null);
+            alert.setContentText("User with such name already exists . . . ");
+            alert.showAndWait();
+        } else { //
+            String sql_query_1 = "INSERT INTO users (loginHash, password, creationDate, nationalityID, isAdmin) VALUES (?, ?, ?, ?, ?)";
             try (Connection conn = DBConnection.getConnection()) {
-                PreparedStatement stmt = conn.prepareStatement(sql);
+                PreparedStatement stmt = conn.prepareStatement(sql_query_1);
 
                 stmt.setString(1, login);
                 stmt.setString(2, password);
@@ -92,14 +101,33 @@ public class RegisterPanel {
                     alert.setHeaderText(null);
                     alert.setContentText("Welcome " + login);
                     alert.showAndWait();
-                    System.out.println("Wstawiono nowy rekord!");
+                    System.out.println("New record inserted . . ."); // Wiadomość do debuggowania
+                    handleDefaultBalance(conn,login);
                 }
             } catch (SQLException e) {
                 throw new RuntimeException(e);
             }
         }
     }
-    // Metoda walidacji hasła
+
+    // Domyślna ilość pieniędzy - 0 przy dodaniu usera + limit 999 999 999 MLN USD
+    private static void handleDefaultBalance(Connection conn, String login) throws SQLException {
+        String sql_query_2 = "SELECT userID FROM users WHERE loginHash = ?";
+        String sql_query_3 = "INSERT INTO funds (userID, balance, fundsLimit) VALUES (?, ?, ?)";
+        PreparedStatement stmt2 = conn.prepareStatement(sql_query_2);
+        stmt2.setString(1, login);
+        ResultSet resultSet = stmt2.executeQuery();
+
+        while (resultSet.next()) {
+            int userID = resultSet.getInt("userID");
+            PreparedStatement stmt3 = conn.prepareStatement(sql_query_3);
+            stmt3.setInt(1,userID);
+            stmt3.setDouble(2,0);
+            stmt3.setDouble(3, MAX_BALANCE);
+            stmt3.executeUpdate();
+        }
+    }
+    // Metoda walidacji hasła (długość oraz wystapienie znaku specjalnego dużej litery i cyfry)
     private boolean handlePasswordValidation(String password) {
         if (password.length() < 8) return false;
         boolean hasUpper = false;
@@ -112,7 +140,20 @@ public class RegisterPanel {
         }
         return hasUpper && hasDigit && hasSpecialCharacter;
     }
-
+    // Metoda walidacji czy jest istniejący użytkownik o takiej samej nazwie
+    private boolean handleSameName(String username) throws SQLException {
+        try (Connection conn = DBConnection.getConnection()) {
+            String sql_query = "SELECT userID FROM users WHERE loginHash = ?";
+            PreparedStatement stmt = conn.prepareStatement(sql_query);
+            stmt.setString(1, username);
+            ResultSet resultSet = stmt.executeQuery();
+            if (resultSet.next()) {
+                return true;
+            }
+            return false;
+        }
+    }
+    // Button do przejścia wstecz
     @FXML
     private void handlePreviousPanel() throws IOException {
         Stage stage = (Stage) previousPanel.getScene().getWindow();
@@ -122,5 +163,4 @@ public class RegisterPanel {
         stage.setScene(scene);
         stage.show();
     }
-
 }
