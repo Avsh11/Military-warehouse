@@ -5,8 +5,6 @@ public class Manufacturers {
     private String name;
     private int nationalityID;
 
-    // Getters & Setters
-
     public int getManufacturerID() {
         return manufacturerID;
     }

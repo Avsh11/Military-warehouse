@@ -28,6 +28,7 @@ public class Main extends Application {
 // - JDK SE Development Kit 24.0.1 (64 Bit)
 // - Reszta użytych zależności/bibliotek/modułów w pom.xml i module-info.
 // - Większość brane z repo maven'a.
+// - UML Generator.
 
 // UWAGI (dla mnie) - notatki:
 
@@ -37,8 +38,14 @@ public class Main extends Application {
 // Formatowanie fundsów jest git
 // Ewentualnie formatowanie daty
 // Wszystko dać na Code > Reformat code żeby było wymaganie spełnione że kod w miarę ładny.
+// Admin załatwiony + poprawki CSS ewentualne.
 
-// Rozpiska - strona administratora.
-// Kontrolery:
-// AdminPanel - zrobiony, nic nie dodawać.
-//
+// Dla usera:
+// Trzymać się konwencji nazywania metod i klas.
+// Ogarnąć CSS spójny dla każdego panelu.
+// Komentarze do niektórych metod.
+// Dać reformat code żeby formatowanie kodu nie było paskudne.
+
+
+// Funkcjonalności po obu stronach są teraz spójność nazewnictwa, komy, wcięcia to reformatka automatycznie i tyle.
+// Wiadomo CSS ogarnąć na końcu.

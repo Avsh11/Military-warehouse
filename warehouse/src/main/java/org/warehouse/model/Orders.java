@@ -11,8 +11,6 @@ public class Orders {
     private LocalDateTime paymentDate;
     private LocalDateTime deliveryDate;
 
-    // Getters & Setters
-
     public int getOrderID() {
         return orderID;
     }

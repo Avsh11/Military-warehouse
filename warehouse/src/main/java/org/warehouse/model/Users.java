@@ -10,9 +10,7 @@ public class Users {
     private LocalDateTime creationDate;
     private int nationalityID;
     private boolean isAdmin;
-
-    // Konstruktor. Użyje do wyświetlania w RemoveUser, ManageFunds
-
+    
     public Users(int userID, String loginHash, LocalDateTime creationDate, int nationalityID, boolean isAdmin) {
         this.userID = userID;
         this.loginHash = loginHash;
@@ -20,9 +18,6 @@ public class Users {
         this.nationalityID = nationalityID;
         this.isAdmin = isAdmin;
     }
-
-
-    // Getters & Setters
 
     public int getUserID() {
         return userID;

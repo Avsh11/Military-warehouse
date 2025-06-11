@@ -6,8 +6,6 @@ public class Funds {
     private double balance;
     private double fundsLimit;
 
-    // Getters & Setters
-
     public int getFundsID() {
         return fundsID;
     }

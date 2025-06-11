@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="800.0" stylesheets="@../css/LoginPanel.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.warehouse.controller.LoginPanel">
+<AnchorPane styleClass="anchor-pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="800.0" stylesheets="@../css/LoginPanel.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.warehouse.controller.LoginController">
    <children>
       <VBox alignment="TOP_CENTER" layoutX="401.0" layoutY="14.0" prefHeight="394.0" prefWidth="207.0" styleClass="rightPanel" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="480.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
          <children>
@@ -59,7 +59,7 @@
                   <Font name="Arial Black" size="12.0" />
                </font>
             </Label>
-            <TextField fx:id="hashlogin" styleClass="loginField">
+            <TextField fx:id="loginField" styleClass="loginField">
                <VBox.margin>
                   <Insets bottom="10.0" />
                </VBox.margin>
@@ -72,7 +72,7 @@
                   <Font name="Arial Black" size="12.0" />
                </font>
             </Label>
-            <PasswordField fx:id="password" styleClass="passwordField">
+            <PasswordField fx:id="passwordField" styleClass="passwordField">
                <VBox.margin>
                   <Insets bottom="10.0" />
                </VBox.margin>

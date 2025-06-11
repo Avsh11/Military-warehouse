@@ -10,7 +10,17 @@ public class Products {
     private String productDescription;
     private String photoName;
 
-    // Getters & Setters
+    @Override
+    public String toString() {
+        return "Products{" +
+                "productID=" + productID +
+                ", name='" + name + '\'' +
+                ", pricePerUnit=" + pricePerUnit +
+                ", inStock=" + inStock +
+                ", productDescription='" + productDescription + '\'' +
+                ", photoName='" + photoName + '\'' +
+                '}';
+    }
 
     public int getProductID() {
         return productID;

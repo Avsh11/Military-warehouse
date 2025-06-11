@@ -14,8 +14,6 @@ public class Nationality {
         return country;
     }
 
-    // Getters & Setters
-
     public int getNationalityID() {
         return nationalityID;
     }
