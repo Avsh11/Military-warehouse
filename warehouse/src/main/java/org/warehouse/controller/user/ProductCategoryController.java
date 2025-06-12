@@ -11,6 +11,9 @@ import java.io.IOException;
 
 public class ProductCategoryController {
 
+    // nationalityID będzie przechowywać ID kraju wybranego w UserController.
+    // Trzeba wiedzieć dla jakiego kraju filtrować spółki produkty.
+
     private int nationalityID;
     @FXML
     private Button previousPageButton;
@@ -19,10 +22,19 @@ public class ProductCategoryController {
     @FXML
     private Button categoryAirButton;
 
+    // Tu przekazujemy nationalityID, ta publiczna metoda jest wywoływana w klasie UserController
+    // zaraz po załadowaniu żeby przenieść to nationalityID.
+    // Teraz to ID jest dostępne w tej klasie.
 
     public void handleSetCountry(int nationalityID) {
         this.nationalityID = nationalityID;
     }
+
+    // Tutaj chcemy załadować widok z producentami (FXML - ManufacturerPanel) i wczesniej
+    // trzeba przekazać mu informacje takie jak kraj i kategoria
+    // Czyli pobieramy kontroler i wywołujemy metodę w tym przypadku
+    // handleSetManufacturer przekazując dwa parametry: kategorie i nationalityID.
+    // Kategoria air albo land tak jak miało być w tym enumie.
 
     private void handleSetManufacturerCategoryPanel(String category, Stage stage, int nationalityID) {
         try {
@@ -38,6 +50,8 @@ public class ProductCategoryController {
         }
     }
 
+    // Obsługa buttonów - wywołujemy główną metodę i przekazujemy jej dane. Tą kategorię i nationalityID przechowywane wcześniej już.
+
     @FXML
     private void handleCategoryLandClick() {
         Stage stage = (Stage) categoryLandButton.getScene().getWindow();
@@ -49,6 +63,8 @@ public class ProductCategoryController {
         Stage stage = (Stage) categoryAirButton.getScene().getWindow();
         handleSetManufacturerCategoryPanel("Air", stage, nationalityID);
     }
+
+    // Powrót do poprzedniego panelu, nic się nie zmienia. Z palca nie opłaca się ponownie pisać tych metod ;).
 
     @FXML
     private void handlePreviousPanelClick() throws IOException {

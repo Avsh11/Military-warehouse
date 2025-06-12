@@ -32,20 +32,8 @@ public class Main extends Application {
 
 // UWAGI (dla mnie) - notatki:
 
-// Dla admina naprawić:
-// Infinity money glitch
-// Te same nazwy dla userów (malo czasu opcjonalnie juz)
-// Formatowanie fundsów jest git
-// Ewentualnie formatowanie daty
-// Wszystko dać na Code > Reformat code żeby było wymaganie spełnione że kod w miarę ładny.
-// Admin załatwiony + poprawki CSS ewentualne.
-
-// Dla usera:
-// Trzymać się konwencji nazywania metod i klas.
-// Ogarnąć CSS spójny dla każdego panelu.
-// Komentarze do niektórych metod.
-// Dać reformat code żeby formatowanie kodu nie było paskudne.
-
-
-// Funkcjonalności po obu stronach są teraz spójność nazewnictwa, komy, wcięcia to reformatka automatycznie i tyle.
-// Wiadomo CSS ogarnąć na końcu.
+// Wyformatować ładnie kod, spójność nazw fla zmiennych i metod ogarnąć, przejrzystość
+// Dokończyć CSS:
+// - tabelki w adminie + cały w userze żeby to jakoś wyglądało.
+// Posprawdzać kod i potestować czy gdzieś formatki nie wywala cen, dat itd.
+// rozbudować niektóre alerty

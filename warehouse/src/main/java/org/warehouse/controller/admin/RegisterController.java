@@ -18,7 +18,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RegisterController {
-    // final - zmienna nie będzie zmieniana będzie mieć jedną konkretną przypisaną wartość.
+
+    // Maksymalna ilość salda na koncie, żeby nie przekroczyć tego miliarda dolarów (PRZYKŁADOWO).
+    // Final - zmienna nie będzie zmieniana będzie mieć jedną konkretną przypisaną wartość.
     public static final int MAX_BALANCE = 999999999;
     @FXML
     private TextField registerLogin;
@@ -68,18 +70,26 @@ public class RegisterController {
 
         // Część walidacji - puste pola + wywołanie funkcji passwordValidation zawierającej walidacje.
 
+        // Walidacja - jeśli jakieś pola są puste = error.
+
         if (login.isEmpty() || password.isEmpty() || confirmPassword.isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error");
             alert.setHeaderText(null);
             alert.setContentText("Every field must be filled!");
             alert.showAndWait();
+
+            // Wywołanie metody handlePasswordValidation - specjalna metoda do sprawdzania wymogów hasła.
+
         } else if (!handlePasswordValidation(password)) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error");
             alert.setHeaderText(null);
             alert.setContentText("Password does not met requirements! Use 8 characters with at least one number, special character and capital letter . . .");
             alert.showAndWait();
+
+            // Jeszcze sprawdzić trzeba czy jest już user o tym samym loginie.
+
         } else if (handleSameName(login)) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error");
@@ -98,6 +108,8 @@ public class RegisterController {
                 stmt.setBoolean(5, false);
 
                 int rowsInserted = stmt.executeUpdate();
+
+                // Komunikat powitalny po poprawnym dodaniu usera.
 
                 if (rowsInserted > 0) {
                     Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -161,6 +173,8 @@ public class RegisterController {
             return false;
         }
     }
+
+    // Standardowo obsługa przycisku do przekierowania na inny panel, ten fragment będzie taki sam już wszędzie.
 
     @FXML
     private void handlePreviousPanelClick() throws IOException {

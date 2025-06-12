@@ -85,11 +85,9 @@ public class RemoveUserController {
     private boolean handleRemoveUserMethod(int userID) {
         String sql = "DELETE FROM users WHERE userID = ?";
         try (Connection conn = DBConnection.getConnection(); PreparedStatement stmt = conn.prepareStatement(sql)) {
-
             stmt.setInt(1, userID);
             int affectedRows = stmt.executeUpdate();
-            return affectedRows > 0;
-
+            return affectedRows > 0; // true jeśli usunęło co najmniej jeden wiersz.
         } catch (SQLException e) {
             e.printStackTrace();
             return false;
@@ -97,6 +95,8 @@ public class RemoveUserController {
     }
 
     // Usuwanie usera plus jego funduszy.
+
+    // Plus obsługa buttona do usuwania. Po kliknięciu wywołamy tę metodę (OnAction="#metoda").
 
     @FXML
     private void handleRemoveUser() {

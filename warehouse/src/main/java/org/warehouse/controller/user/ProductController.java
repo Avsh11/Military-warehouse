@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
@@ -47,15 +48,30 @@ public class ProductController {
     public ImageView p2imageImage;
     @FXML
     private Button previousPageButton;
+
+    // Przechowanie id producenta.
+
     private int manufacturerID;
 
+    // Lista na obiekty produktów. Zastosowanie modelu.
+
     private List<Products> products = new ArrayList<>();
+
+    // Chcemy pobrać produkty z bazy na podstawie ID producenta
+
+    // Wywoływane przez poprzedni kontroler (ManufacturerController) bo chcemy przekazywać dalej
+    // manufacturerID.
 
     public void handleViewProducts(int manufacturerID) {
 
         this.manufacturerID = manufacturerID;
 
-        products.clear(); //ADD
+        // Wyczyszczenie widoku jakby miał być używany ponownie.
+        // Ta kwestia do ewentualnego omówienia prywatnie.
+
+        products.clear();
+
+        // Łączenie z bazą i filtrowanie produktów po id producenta.
 
         try (Connection conn = DBConnection.getConnection()) {
             String sql = "SELECT * FROM products WHERE idManufacturer = ?";
@@ -64,6 +80,11 @@ public class ProductController {
 
             ResultSet result = stmt.executeQuery();
             while (result.next()) {
+
+                // Obiekt product z Products (model).
+                // Potem ręczne pobieranie z pierwszego i drugiego produktu i ustawia
+                // w odpowiednich etykietach i obrazkach.
+
                 Products product = new Products();
                 product.setProductID(result.getInt("productID"));
                 product.setName(result.getString("name"));
@@ -109,8 +130,17 @@ public class ProductController {
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
+            // Dodatkowa obsługa błędu gdyby producent miał mniej niż ustalone 2 produkty.
+        } catch (IndexOutOfBoundsException e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText(null);
+            alert.setContentText("Less than two products for this company . . .");
+            alert.showAndWait();
         }
     }
+
+    // Przycisk wstecz, obsługa. To co w pozostałych klasach.
 
     @FXML
     private void handlePreviousPanelClick() throws IOException {
@@ -122,13 +152,17 @@ public class ProductController {
         stage.show();
     }
 
+    // Tutaj ciekawiej bo pobieramy kontroler i wywołujemy metodę handleSetProduct (BuyController). Dzięki temu
+    // BuyController będzie mieć wszystkie dane potrzebne do wyświetlania. Nie będzie musiał w sensie
+    // już ponownie pytać bazy o nie.
+
     @FXML
     private void handleBuyP1Click() throws IOException {
         Stage stage = (Stage) p1buyButton.getScene().getWindow();
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/gui/user/BuyPanel.fxml"));
         Parent primaryFXML = fxmlLoader.load();
         BuyController controller = fxmlLoader.getController();
-        controller.setProduct(products.get(0));
+        controller.handleSetProduct(products.get(0));
         Scene scene = new Scene(primaryFXML);
         stage.setScene(scene);
         stage.show();
@@ -140,7 +174,7 @@ public class ProductController {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/gui/user/BuyPanel.fxml"));
         Parent primaryFXML = fxmlLoader.load();
         BuyController controller = fxmlLoader.getController();
-        controller.setProduct(products.get(1));
+        controller.handleSetProduct(products.get(1));
         Scene scene = new Scene(primaryFXML);
         stage.setScene(scene);
         stage.show();

@@ -21,6 +21,7 @@ import java.time.format.DateTimeFormatter;
 
 public class ManageFundsController {
 
+    // Maksymalna ilość salda na koncie, żeby nie przekroczyć tego miliarda dolarów (PRZYKŁADOWO).
     public static final int MAX_BALANCE = 999999999;
     @FXML
     private TableView<ManageFundsUserView> userTable;
@@ -38,6 +39,8 @@ public class ManageFundsController {
     private Button previousPageButton;
     @FXML
     private TextField balanceField;
+
+    // Lista obserwowalna użytkowników żeby wyświetlić ich w tabeli
 
     private final ObservableList<ManageFundsUserView> userList = FXCollections.observableArrayList();
 
@@ -79,6 +82,8 @@ public class ManageFundsController {
             }
         });
 
+        // Załadowanie i wyświetlenie userów w tabeli.
+
         handleViewUsers();
         userTable.setItems(userList);
 
@@ -93,6 +98,9 @@ public class ManageFundsController {
             }
         });
     }
+
+    // Chcemy pobrać z bazy danych userów (z wyjątkiem Admina ze względów bezpieczeństwa)
+    // wraz z ich narodowością saldem datą utworzenia itd.
 
     @FXML
     private void handleViewUsers() {
@@ -125,7 +133,7 @@ public class ManageFundsController {
             return;
         }
 
-        // Walidacja - co jeśli nie wybraliśmy usera któremu chcemy dodać fundusze.
+        // Walidacja - co jeśli nie wybraliśmy usera któremu chcemy dodać fundusze. (klik na usera na tabeli)
 
         ManageFundsUserView selectedUser = userTable.getSelectionModel().getSelectedItem();
         if (selectedUser == null) {
@@ -153,6 +161,8 @@ public class ManageFundsController {
                 return;
             }
 
+            // Update salda do bazy (UPDATE).
+
             try (Connection conn = DBConnection.getConnection()) {
                 String sql = "UPDATE funds SET balance = ? WHERE userID = ?";
                 PreparedStatement stmt = conn.prepareStatement(sql);
@@ -160,10 +170,14 @@ public class ManageFundsController {
                 stmt.setInt(2, selectedUser.getUserID());
                 int rowsUpdated = stmt.executeUpdate();
 
+                // Jeśli UPDATE się powiódl to odświeżamy widok tabeli
+
                 if (rowsUpdated > 0) {
                     selectedUser.setBalance(newBalance);
                     userTable.refresh();
                 }
+
+                // Dalej już obsługi błędów, jeśli wartość to nie liczba, update się nie powiedzie do bazy.
             }
         } catch (NumberFormatException e) {
             Alert alert = new Alert(Alert.AlertType.ERROR);

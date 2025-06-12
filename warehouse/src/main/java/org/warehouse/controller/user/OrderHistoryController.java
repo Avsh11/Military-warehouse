@@ -42,10 +42,19 @@ public class OrderHistoryController {
     @FXML
     public Button previousPageButton;
 
+    // Chcemy pobrać dane zamówień konkretnego użytkownika.
+    // Nie chcemy mieć zamówień innego -> kwestia bezpieczeństwa i prywatności.
+
+
     @FXML
     public void initialize() {
 
+        // Tworzenie listy obserwowalnej, wykorzystanie modelu OrderHistoryUserVIew w celu pobrania
+        // odpowiednich wartości do tabeli.
+
         ObservableList<OrderHistoryUserView> data = FXCollections.observableArrayList();
+
+        // Następnie chcemy jakoś powiązać każdą kolumnę z odpowiednim polem w modelu
 
         orderIDCol.setCellValueFactory(new PropertyValueFactory<>("orderID"));
         productNameCol.setCellValueFactory(new PropertyValueFactory<>("name"));
@@ -93,14 +102,22 @@ public class OrderHistoryController {
             }
         });
 
+        // Połaczenie z bazą, zapytanko do bazy (wyświetlanie z dwóch tabel dlatego INNER JOIN).
+        // Ponownie prepared statement, dobra praktyka bo sql injection.
+        // nie musimy podawać danych bezpośrednio tylko używamy ?.
+
         try (Connection conn = DBConnection.getConnection()) {
-            PreparedStatement stmt1 = conn.prepareStatement("SELECT orderID, name, orderQuantity, orderPrice, paymentDate, deliveryDate " +
+            PreparedStatement stmt = conn.prepareStatement("SELECT orderID, name, orderQuantity, orderPrice, paymentDate, deliveryDate " +
                     "FROM orders " +
                     "INNER JOIN products " +
                     "ON orders.productID = products.productID " +
                     "WHERE userID = ?");
-            stmt1.setInt(1, UserInfo.userID);
-            ResultSet result = stmt1.executeQuery();
+            stmt.setInt(1, UserInfo.userID);
+            ResultSet result = stmt.executeQuery();
+
+            // Iterujuemy sobie w pętli po każdym zwróconym wierszu a potem dla każdego wiersza tworzymy obiekt
+            // i dodawany jest do listy w tym przypdku lista data.
+
             while (result.next()) {
                 OrderHistoryUserView order = new OrderHistoryUserView();
                 order.setOrderID(result.getInt("orderID"));
@@ -114,10 +131,14 @@ public class OrderHistoryController {
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+        // Tu wcześniej był przeoczony stary for each z poprzednich prób ogarniania kodu, usunięty w next commicie.
+        // Prosto mówiąc metoda setItems przyjmuje listę data i wypełnia tabele.
+
         orderTable.setItems(data);
-        for (OrderHistoryUserView order : data) {
-        }
     }
+
+    // Obsługa buttona - przejście do panelu w tym przypadku poprzedniego w kolejności.
 
     @FXML
     private void handlePreviousPanelClick() throws IOException {

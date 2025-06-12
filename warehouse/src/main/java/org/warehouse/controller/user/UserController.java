@@ -14,6 +14,8 @@ import java.io.IOException;
 
 public class UserController {
 
+    // Inicjalizacje pól z FXMLa, buttony itd.
+
     @FXML
     private Button franceButton;
     @FXML
@@ -27,6 +29,8 @@ public class UserController {
     @FXML
     public Button orderHistoryButton;
 
+    // Metoda initialize jest tutaj potrzebna żeby załadować nam obrazki na buttony.
+
     @FXML
     public void initialize() {
         handleFranceImage();
@@ -34,6 +38,10 @@ public class UserController {
         handleUsaImage();
         handleUnitedkingdomImage();
     }
+
+    // Chcemy załadować panel (nowy widok) - ProductCategoryPanel i przekazać mu informacje o wybranym kraju.
+    // controller.handleSetCountry(nationalityID) - przekazujemy id kraju.
+    // Zmodyfikowanie metody do przenoszenia na następny widok. (AdminPanel).
 
     private void handleSetProductCategoryPanel(int nationalityID, Stage stage) {
         try {
@@ -53,6 +61,8 @@ public class UserController {
     // Potem już chcemy mieć spółki i produkty danego kraju.
     // Lecimy po IDkach kraju.
     // Mam połączenia tabel więc później nie będzie problemu połączyć wszystko w całość (produkty, spółki na kraj).
+
+    // Wywołanie metody handleSetProductCategoryPanel i dajemy jej ID kraju.
 
     @FXML
     private void handleFranceClick() {
@@ -79,6 +89,7 @@ public class UserController {
     }
 
     // Obrazki na buttony, nie zapomnieć dodać odpowiedniej linijki w panelu poprzednim w który ładujemy ten - załadowanie css.
+    // Chcemy mieć obrazki na buttonach dla przejrzystości i klarowności w GUI.
 
     public void handleFranceImage() {
         Image image = new Image(getClass().getResourceAsStream("/image/fr/fr.png"));
@@ -107,6 +118,8 @@ public class UserController {
         imageView.getStyleClass().add("flagSize");
         unitedkingdomButton.setGraphic(imageView);
     }
+
+    // Te same metody obsługujące button i ładujące nowy widok.
 
     @FXML
     private void handleOrderHistoryClick() throws IOException {

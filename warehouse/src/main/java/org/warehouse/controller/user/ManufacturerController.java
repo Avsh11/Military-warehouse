@@ -20,15 +20,24 @@ public class ManufacturerController {
     public Button firstCompanyButton;
     @FXML
     public Button secondCompanyButton;
+
     private int nationalityID;
     private String productType;
+
+    // Pola do przechowywania idków producentów.
 
     private int idCompany1 = 0;
     private int idCompany2 = 0;
 
     public void handleSetManufacturer(String productType, int nationalityID) {
+
+        // Dostęp do parametrów w innych metodach.
+
         this.nationalityID = nationalityID;
         this.productType = productType;
+
+        // Z bazy chcemy pobrać id producenta jego narodowość czy firma jest z USA i wiadomo nazwę
+        // do wyświetlenia.
 
         try (Connection conn = DBConnection.getConnection()) {
             String sql = "SELECT manufacturerID, name, nationalityID, manufacturerType FROM Manufacturers WHERE nationalityID = ? AND manufacturerType = ?";
@@ -52,6 +61,9 @@ public class ManufacturerController {
                     break;
                 }
             }
+
+            // Chcemy ustawić name na buttonie.
+
             firstCompanyButton.setText(company1);
             secondCompanyButton.setText(company2);
 
@@ -59,6 +71,10 @@ public class ManufacturerController {
             throw new RuntimeException(e);
         }
     }
+
+    // IOException jak wystąpi problem podczas komunikacji z systemem w tym przypadku jak nie da rady
+    // znaleźć pliku FXML. Kod wywołujący metodę wie jakich wyjątków może się spodziewać.
+    // Książka str 226 o klauzuli throws.
 
     @FXML
     private void handleFirstCompany() throws IOException {

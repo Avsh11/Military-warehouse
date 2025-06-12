@@ -43,6 +43,9 @@ public class BuyController {
     public Button previousPageButton;
 
     private double price = 0;
+
+    // Obiekt produktu.
+
     private Products product;
 
     // Podobnie jak w dodawaniu środków chcemy mieć cyfry i tylko cyfry stąd regex.
@@ -57,11 +60,16 @@ public class BuyController {
         });
     }
 
-    public void setProduct(Products product) {
+    public void handleSetProduct(Products product) {
+
+        // labele ustawiamy na podstawie danych z produktu.
+
         this.product = product;
         buyNameLabel.setText(product.getName());
-        buyPriceLabel.setText(String.format("%.2f $", product.getPricePerUnit()));
+        buyPriceLabel.setText(String.format("%.2f $", product.getPricePerUnit())); // Formatka na szybko.
         buyStockLabel.setText(String.valueOf(product.getInStock()));
+
+        // Ładowanie obrazka produktu + obsługa przypadku gdy nie będzie mogło znaleźć obrazka lub załadować.
 
         try {
             String imagePath = "/image/products/" + product.getPhotoName();
@@ -80,6 +88,9 @@ public class BuyController {
         }
     }
 
+    // Obliczanie i wyświetlanie nowej ceny gdy user zmienia ilość tego co chce kupić.
+    // price = product.getPricePerUnit() * amount; cena za sztukę razy ilość.
+
     private void handleSetPrice() {
         String text = buyField.getText().trim();
         if (text.isEmpty()) {
@@ -97,9 +108,13 @@ public class BuyController {
         }
     }
 
+    // W obsłudze buttona do kupowania cała logika walidacje, sprawdzanie środkow, zapytania do bazy (inserty,updaty).
+
     @FXML
     private void handleBuyButtonClick() {
         int amount = Integer.parseInt(buyField.getText().trim());
+
+        // Jak chcemy kupić więcej niż można = alert.
 
         if (amount > product.getInStock()) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -131,9 +146,13 @@ public class BuyController {
                 alert.showAndWait();
                 return;
             }
-            LocalDateTime deliveryDate = LocalDateTime.now().plusMonths(1);
+            LocalDateTime deliveryDate = LocalDateTime.now().plusMonths(1); // Dostawa + miesiąc.
+
             // IntelliJ nie analizuje dynamicznych zapytań z przypisania do zmiennej sql w tym przypadku.
-            // Usunąć zmienną sql i przypisać zapytanie do PreparedStatement
+            // Usunąć zmienną sql i przypisać zapytanie do PreparedStatement.
+
+            // Wstawianie informacji o zamówieniu do tabeli orders. (Potem chcemy jednak wyświetlać zamówienia).
+
             PreparedStatement stmt1 = conn.prepareStatement("INSERT INTO orders (productID, userID, orderQuantity, orderPrice, paymentDate, deliveryDate) VALUES (?, ?, ?, ?, ?, ?)");
             stmt1.setInt(1, product.getProductID());
             stmt1.setInt(2, UserInfo.userID);
@@ -158,6 +177,8 @@ public class BuyController {
             alert.setHeaderText(null);
             alert.setContentText("Thanks for purchase\n" + "Delivery date: " + deliveryDate);
             alert.showAndWait();
+
+            // Plus obsługa buttona standardowo (panel poprzedni/głowny).
 
             Stage stage = (Stage) previousPageButton.getScene().getWindow();
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/gui/user/ProductPanel.fxml"));
