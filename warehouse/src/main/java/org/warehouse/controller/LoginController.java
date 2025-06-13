@@ -8,6 +8,8 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import org.warehouse.util.DBConnection;
 import org.warehouse.util.UserInfo;
@@ -26,6 +28,33 @@ public class LoginController {
     private PasswordField passwordField;
     @FXML
     private Button loginButton;
+
+    // ? ? ? ? ? ? ? ? ? ? ?
+
+    @FXML
+    private ImageView logoImage;
+
+    private Image imageDefault;
+    private Image imageMouse;
+
+    @FXML
+    public void initialize() {
+        imageDefault = new Image(getClass().getResourceAsStream("/image/logo.png"));
+        imageMouse = new Image(getClass().getResourceAsStream("/image/secret.png"));
+        logoImage.setImage(imageDefault);
+    }
+
+    @FXML
+    public void handleMouseEntered() {
+        logoImage.setImage(imageMouse);
+    }
+
+    @FXML
+    public void handleMouseExited() {
+        logoImage.setImage(imageDefault);
+    }
+
+    // ? ? ? ? ? ? ? ? ? ? ?
 
     // Metoda do obsługi logowania - zarówno przycisk jak i obsługa loginu, hasła.
     // Musimy sprawdzić czy poprawne są dane z pola hasła i loginu (dla stworzonych już użytkowników).
@@ -47,7 +76,7 @@ public class LoginController {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error");
             alert.setHeaderText(null);
-            alert.setContentText("Login and password fields are empty. Please try again . . .");
+            alert.setContentText("Login or password field is empty. Please try again . . .");
             alert.showAndWait();
             return;
         }

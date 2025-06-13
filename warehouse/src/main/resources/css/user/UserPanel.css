@@ -1,43 +1,31 @@
+.anchorPane {
+    -fx-background-color: #F0F4F7;
+}
+
 .mainPanel {
-    -fx-background-color: #1e1e1e;
+    -fx-background-color: #1E1E1E;
     -fx-background-radius: 20px;
     -fx-border-radius: 20px;
     -fx-border-color: transparent;
 }
 
-.germany {
+.germany, .france, .usa, .unitedkingdom {
     -fx-background-color: transparent;
     -fx-border-color: transparent;
     -fx-padding: 0;
-
+    -fx-cursor: hand;
 }
 
-.france {
-    -fx-background-color: transparent;
-    -fx-border-color: transparent;
-    -fx-padding: 0;
-
-}
-
-.usa {
-    -fx-background-color: transparent;
-    -fx-border-color: transparent;
-    -fx-padding: 0;
-
-}
-
-.unitedkingdom {
-    -fx-background-color: transparent;
-    -fx-border-color: transparent;
-    -fx-padding: 0;
-
-}
 .flagSize {
-    -fx-fit-width: 55px;
-    -fx-fit-height: 35px;
+    -fx-fit-width: 65px;
+    -fx-fit-height: 45px;
 }
 
-.logoutButton {
+.button:hover .flagSize {
+    -fx-effect: dropshadow(gaussian, #4CAF50, 6, 0.8, 0, 0);
+}
+
+.logoutButton, .orderHistoryButton {
     -fx-pref-width: 220px;
     -fx-max-width: 220px;
     -fx-min-width: 220px;
@@ -51,4 +39,12 @@
     -fx-font-size: 13px;
     -fx-font-family: Arial;
     -fx-font-weight: bold;
+}
+
+.logoutButton:hover {
+    -fx-background-color: #808080;
+}
+
+.orderHistoryButton:hover {
+    -fx-background-color: #808080;
 }

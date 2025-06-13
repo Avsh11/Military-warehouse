@@ -1,12 +1,12 @@
 /* Kolory paska tytułu w windowsie będą się różnić od tła panelu, nie zapomnieć, pododawać idki! */
 /* Po straceniu focusu apki kolor paska tytułu będzie zmieniać się na ten defaultowy z panelu */
-.anchor-pane {
-    -fx-background-color: #f0f4f7;
+.anchorPane {
+    -fx-background-color: #F0F4F7;
 }
 
 /* VBOX TEMPLATE */
 .rightPanel {
-    -fx-background-color: #e0e0e0;
+    -fx-background-color: #E0E0E0;
     -fx-background-radius: 20px;
     -fx-border-radius: 20px;
     -fx-text-fill: white;
@@ -14,7 +14,7 @@
 }
 
 .leftPanel {
-    -fx-background-color: #1e1e1e;
+    -fx-background-color: #1E1E1E;
     -fx-background-radius: 20px;
     -fx-border-radius: 20px;
     -fx-border-color: transparent;
@@ -22,17 +22,7 @@
 /* VBOX TEMPLATE */
 
 /* FIELD TEMPLATE */
-.loginField {
-    -fx-pref-width: 220px;
-    -fx-max-width: 220px;
-    -fx-min-width: 220px;
-    -fx-background-radius: 8;
-    -fx-border-radius: 8;
-    -fx-font-size: 13px;
-    -fx-padding: 8px;
-}
-
-.passwordField {
+.loginField, .passwordField {
     -fx-pref-width: 220px;
     -fx-max-width: 220px;
     -fx-min-width: 220px;
@@ -51,7 +41,7 @@
     -fx-background-color: #A9A9A9;
     -fx-text-fill: white;
     -fx-cursor: hand;
-    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 2, 0, 0, 1);
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 2, 0, 0, 1); /* Przeroczystość na 20% */
     -fx-border-radius: 6;
     -fx-background-radius: 6;
     -fx-padding: 8px;
@@ -59,36 +49,22 @@
     -fx-font-family: Arial;
     -fx-font-weight: bold;
 }
+
+.loginButton:hover {
+    -fx-background-color: #808080;
+}
+
 /* BUTTON TEMPLATE */
 
 /* LABEL TEMPLATE */
-.loginLabel {
+.loginLabel, .passwordLabel {
     -fx-font-size: 13px;
     -fx-text-fill: white;
     -fx-font-family: Arial;
     -fx-font-weight: bold;
 }
 
-.passwordLabel {
-    -fx-font-size: 13px;
-    -fx-text-fill: white;
-    -fx-font-family: Arial;
-    -fx-font-weight: bold;
-}
-
-.nameLabel1 {
-    -fx-font-family: "Arial Black";
-    -fx-font-size: 17px;
-    -fx-font-weight: bold;
-}
-
-.nameLabel2 {
-    -fx-font-family: "Arial Black";
-    -fx-font-size: 17px;
-    -fx-font-weight: bold;
-}
-
-.nameLabel3 {
+.nameLabel1, .nameLabel2, .nameLabel3 {
     -fx-font-family: "Arial Black";
     -fx-font-size: 17px;
     -fx-font-weight: bold;

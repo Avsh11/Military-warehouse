@@ -6,9 +6,9 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@../../css/user/UserPanel.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.warehouse.controller.user.UserController">
+<AnchorPane prefHeight="500.0" prefWidth="800.0" stylesheets="@../../css/user/UserPanel.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.warehouse.controller.user.UserController">
    <children>
-      <VBox alignment="CENTER" layoutX="14.0" layoutY="14.0" prefHeight="200.0" prefWidth="100.0" styleClass="mainPanel" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+      <VBox alignment="CENTER" layoutX="14.0" layoutY="14.0" prefHeight="350.0" prefWidth="550.0" styleClass="mainPanel" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
          <children>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="590.0" spacing="15.0">
                <children>
@@ -18,11 +18,12 @@
                   <Button fx:id="unitedkingdomButton" mnemonicParsing="false" onAction="#handleUnitedkingdomClick" styleClass="unitedkingdom" text="" />
                </children>
             </HBox>
-            <Button fx:id="logoutButton" layoutX="186.0" layoutY="324.0" mnemonicParsing="false" onAction="#handleLogoutClick" styleClass="logoutButton" text="LOGOUT">
+            <Button styleClass="orderHistoryButton" fx:id="orderHistoryButton" mnemonicParsing="false" text="ORDER HISTORY" onAction="#handleOrderHistoryClick">
                <VBox.margin>
                   <Insets bottom="10.0" />
-               </VBox.margin></Button>
-            <Button fx:id="orderHistoryButton" mnemonicParsing="false" text="ORDER HISTORY" onAction="#handleOrderHistoryClick"/>
+               </VBox.margin>
+            </Button>
+            <Button fx:id="logoutButton" mnemonicParsing="false" onAction="#handleLogoutClick" styleClass="logoutButton" text="LOGOUT" />
          </children>
       </VBox>
    </children>

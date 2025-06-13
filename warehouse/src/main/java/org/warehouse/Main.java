@@ -8,6 +8,8 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.Objects;
 
+// W aplikacjach javaFX musi być dziedziczenie po klasie Application.
+
 public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws IOException {
@@ -32,8 +34,8 @@ public class Main extends Application {
 
 // UWAGI (dla mnie) - notatki:
 
-// Wyformatować ładnie kod, spójność nazw fla zmiennych i metod ogarnąć, przejrzystość
-// Dokończyć CSS:
-// - tabelki w adminie + cały w userze żeby to jakoś wyglądało.
-// Posprawdzać kod i potestować czy gdzieś formatki nie wywala cen, dat itd.
-// rozbudować niektóre alerty
+// Ogarnąć buga z długością opisu (rozwalające się UI)
+// Dokończyć CSS dla pozostałych paneli.
+// Ogarnąć formatkę cen w produktach.
+// Labele uzupełniające do Buya i Producta.
+// Alert po kupieniu formatka czasu i komunikatu bug.

@@ -9,14 +9,11 @@
     -fx-border-color: transparent;
 }
 
-.loginLabel, .passwordLabel, .retypePasswordLabel {
-    -fx-font-size: 13px;
-    -fx-text-fill: white;
-    -fx-font-family: Arial;
-    -fx-font-weight: bold;
+.productImage {
+    -fx-effect: dropshadow(gaussian, #4CAF50, 6, 0.9, 0, 0);
 }
 
-.loginField, .passwordField, .retypePasswordField {
+.buyField {
     -fx-pref-width: 220px;
     -fx-max-width: 220px;
     -fx-min-width: 220px;
@@ -26,7 +23,36 @@
     -fx-padding: 8px;
 }
 
-.registerButton, .previousPageButton {
+.buyNameLabel, .buyPriceLabel, .buyStockLabel, .finalPriceLabel {
+    -fx-font-size: 13px;
+    -fx-text-fill: white;
+    -fx-font-family: Arial;
+    -fx-font-weight: bold;
+}
+
+.buyButton {
+    -fx-pref-width: 100px;
+    -fx-max-width: 100px;
+    -fx-min-width: 100px;
+    -fx-background-color: #4CAF50;
+    -fx-text-fill: white;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 4, 0.3, 0, 1);
+    -fx-border-radius: 20;
+    -fx-background-radius: 20;
+    -fx-padding: 8px 12px;
+    -fx-font-size: 12px;
+    -fx-font-family: "Segoe UI", sans-serif;
+    -fx-font-weight: bold;
+    -fx-alignment: center;
+    -fx-content-display: center;
+}
+
+.buyButton:hover {
+    -fx-background-color: #367D39;
+}
+
+.previousPageButton {
     -fx-pref-width: 220px;
     -fx-max-width: 220px;
     -fx-min-width: 220px;
@@ -42,31 +68,6 @@
     -fx-font-weight: bold;
 }
 
-.registerButton:hover {
-    -fx-background-color: #808080;
-}
-
 .previousPageButton:hover {
     -fx-background-color: #808080;
 }
-
-.nationalityComboBox {
-    -fx-pref-width: 220px;
-    -fx-max-width: 220px;
-    -fx-min-width: 220px;
-    -fx-font-size: 14px;
-    -fx-font-family: "Arial";
-    -fx-background-color: #FFFFFF;
-    -fx-border-color: #CCCCCC;
-    -fx-background-radius: 8;
-    -fx-border-radius: 8;
-    -fx-padding: 8px;
-}
-
-.nationalityComboBox:hover{
-    -fx-border-color: #888;
-}
-
-
-
-

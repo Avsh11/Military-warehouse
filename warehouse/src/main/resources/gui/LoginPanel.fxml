@@ -11,11 +11,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane styleClass="anchor-pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="800.0" stylesheets="@../css/LoginPanel.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.warehouse.controller.LoginController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="800.0" styleClass="anchorPane" stylesheets="@../css/LoginPanel.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.warehouse.controller.LoginController">
    <children>
       <VBox alignment="TOP_CENTER" layoutX="401.0" layoutY="14.0" prefHeight="394.0" prefWidth="207.0" styleClass="rightPanel" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="480.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
          <children>
-            <ImageView fitHeight="160.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="logoImage" onMouseEntered="#handleMouseEntered" onMouseExited="#handleMouseExited" fitHeight="160.0" fitWidth="160.0" pickOnBounds="true" preserveRatio="true">
                <VBox.margin>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="60.0" />
                </VBox.margin>
@@ -23,7 +23,7 @@
                   <Image url="@../image/logo.png" />
                </image>
             </ImageView>
-            <Label alignment="CENTER" contentDisplay="CENTER" styleClass="nameLabel1" text="CLASSIFIED" textAlignment="CENTER">
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="36.0" prefWidth="669.0" styleClass="nameLabel1" text="CLASSIFIED" textAlignment="CENTER">
                <padding>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </padding>
@@ -34,7 +34,7 @@
                   <Font name="Arial Black" size="10.0" />
                </font>
             </Label>
-            <Label styleClass="nameLabel2" text=" ARMAMENT" textAlignment="CENTER">
+            <Label alignment="CENTER" prefHeight="26.0" prefWidth="407.0" styleClass="nameLabel2" text=" ARMAMENT" textAlignment="CENTER">
                <font>
                   <Font name="Arial Black" size="10.0" />
                </font>
@@ -42,7 +42,7 @@
                   <Insets bottom="3.0" />
                </VBox.margin>
             </Label>
-            <Label styleClass="nameLabel3" text="SUPPLY" textAlignment="CENTER">
+            <Label alignment="CENTER" prefHeight="26.0" prefWidth="353.0" styleClass="nameLabel3" text="SUPPLY" textAlignment="CENTER">
                <font>
                   <Font name="Arial Black" size="10.0" />
                </font>

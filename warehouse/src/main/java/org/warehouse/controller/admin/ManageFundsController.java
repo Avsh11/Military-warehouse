@@ -22,6 +22,7 @@ import java.time.format.DateTimeFormatter;
 public class ManageFundsController {
 
     // Maksymalna ilość salda na koncie, żeby nie przekroczyć tego miliarda dolarów (PRZYKŁADOWO).
+
     public static final int MAX_BALANCE = 999999999;
     @FXML
     private TableView<ManageFundsUserView> userTable;
@@ -40,7 +41,7 @@ public class ManageFundsController {
     @FXML
     private TextField balanceField;
 
-    // Lista obserwowalna użytkowników żeby wyświetlić ich w tabeli
+    // Lista obserwowalna użytkowników żeby wyświetlić ich w tabeli.
 
     private final ObservableList<ManageFundsUserView> userList = FXCollections.observableArrayList();
 

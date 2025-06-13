@@ -1,22 +1,56 @@
+.anchorPane {
+    -fx-background-color: #F0F4F7;
+}
+
 .mainPanel {
-    -fx-background-color: #1e1e1e;
+    -fx-background-color: #1E1E1E;
     -fx-background-radius: 20px;
     -fx-border-radius: 20px;
     -fx-border-color: transparent;
+    -fx-spacing: 20px;
+    -fx-padding: 20px;
 }
+
 .userTable {
-    -fx-background-color: #1e1e1e;
-    -fx-background-radius: 20px;
-    -fx-border-radius: 20px;
-    -fx-border-color: transparent;
+    -fx-background-color: #2e2e2e;
+    -fx-background-radius: 16px;
+    -fx-border-radius: 16px;
+    -fx-padding: 10px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 6, 0, 0, 2);
 }
+
+.userTable .table-row-cell {
+    -fx-text-fill: white;
+    -fx-background-color: #2A2A2A;
+    -fx-padding: 0;
+    -fx-cell-size: 32px;
+    -fx-border-width: 0;
+}
+
+.userTable .table-cell {
+    -fx-text-fill: white;
+    -fx-font-size: 13px;
+    -fx-alignment: CENTER;
+}
+
 .fundsLabel {
     -fx-font-size: 13px;
     -fx-text-fill: white;
     -fx-font-family: Arial;
     -fx-font-weight: bold;
 }
-.previousButton {
+
+.balanceField {
+    -fx-pref-width: 220px;
+    -fx-max-width: 220px;
+    -fx-min-width: 220px;
+    -fx-background-radius: 8;
+    -fx-border-radius: 8;
+    -fx-font-size: 13px;
+    -fx-padding: 8px;
+}
+
+.previousPageButton, .balanceButton {
     -fx-pref-width: 220px;
     -fx-max-width: 220px;
     -fx-min-width: 220px;
@@ -31,18 +65,11 @@
     -fx-font-family: Arial;
     -fx-font-weight: bold;
 }
-.balanceButton {
-    -fx-pref-width: 220px;
-    -fx-max-width: 220px;
-    -fx-min-width: 220px;
-    -fx-background-color: #A9A9A9;
-    -fx-text-fill: white;
-    -fx-cursor: hand;
-    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 2, 0, 0, 1);
-    -fx-border-radius: 6;
-    -fx-background-radius: 6;
-    -fx-padding: 8px;
-    -fx-font-size: 13px;
-    -fx-font-family: Arial;
-    -fx-font-weight: bold;
+
+.previousPageButton:hover {
+    -fx-background-color: #808080;
+}
+
+.balanceButton:hover {
+    -fx-background-color: #808080;
 }

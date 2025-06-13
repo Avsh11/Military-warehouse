@@ -11,7 +11,7 @@
 
 <AnchorPane prefHeight="500.0" prefWidth="800.0" stylesheets="@../../css/admin/RegisterPanel.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.warehouse.controller.admin.RegisterController">
    <children>
-      <VBox alignment="CENTER" layoutX="31.0" layoutY="14.0" prefHeight="200.0" prefWidth="100.0" styleClass="mainPanel" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+      <VBox alignment="CENTER" layoutX="31.0" layoutY="14.0" prefHeight="200.0" prefWidth="100.0" styleClass="mainPanel" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
          <children>
             <Label styleClass="loginLabel" text="USERNAME">
                <VBox.margin>
@@ -48,7 +48,7 @@
                <VBox.margin>
                   <Insets bottom="10.0" />
                </VBox.margin></Button>
-            <Button fx:id="previousPageButton" mnemonicParsing="false" onAction="#handlePreviousPanelClick" styleClass="previousButton" text="PREVIOUS PAGE">
+            <Button fx:id="previousPageButton" mnemonicParsing="false" onAction="#handlePreviousPanelClick" styleClass="previousPageButton" text="PREVIOUS PAGE">
                <VBox.margin>
                   <Insets bottom="5.0" />
                </VBox.margin></Button>

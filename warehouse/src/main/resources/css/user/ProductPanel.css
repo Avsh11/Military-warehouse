@@ -1,0 +1,88 @@
+.anchorPane {
+    -fx-background-color: #F0F4F7;
+}
+
+.mainPanel {
+    -fx-background-color: #1E1E1E;
+    -fx-background-radius: 20px;
+    -fx-border-radius: 20px;
+    -fx-border-color: transparent;
+}
+
+.p1Image, .p2Image {
+    -fx-effect: dropshadow(gaussian, #4CAF50, 6, 0.9, 0, 0);
+}
+
+.p1nameLabel, .p2nameLabel {
+    -fx-text-fill: white;
+    -fx-alignment: center;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+}
+
+.p1descLabel, .p2descLabel {
+    -fx-text-fill: white;
+    -fx-alignment: center;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+}
+
+.p1priceLabel, .p2priceLabel {
+    -fx-text-fill: white;
+    -fx-alignment: center;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+}
+
+.p1stockLabel, .p2stockLabel {
+    -fx-text-fill: white;
+    -fx-alignment: center;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+}
+
+.p1buyButton, .p2buyButton {
+    -fx-pref-width: 100px;
+    -fx-max-width: 100px;
+    -fx-min-width: 100px;
+    -fx-background-color: #4CAF50;
+    -fx-text-fill: white;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 4, 0.3, 0, 1);
+    -fx-border-radius: 20;
+    -fx-background-radius: 20;
+    -fx-padding: 8px 12px;
+    -fx-font-size: 12px;
+    -fx-font-family: "Segoe UI", sans-serif;
+    -fx-font-weight: bold;
+    -fx-alignment: center;
+    -fx-content-display: center;
+}
+
+.p1buyButton:hover {
+    -fx-background-color: #367D39;
+}
+
+.p2buyButton:hover {
+    -fx-background-color: #367D39;
+}
+
+.returnButton {
+    -fx-pref-width: 220px;
+    -fx-max-width: 220px;
+    -fx-min-width: 220px;
+    -fx-background-color: #A9A9A9;
+    -fx-text-fill: white;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 2, 0, 0, 1);
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+    -fx-padding: 8px;
+    -fx-font-size: 13px;
+    -fx-font-family: Arial;
+    -fx-font-weight: bold;
+}
+
+.returnButton:hover {
+    -fx-background-color: #808080;
+}

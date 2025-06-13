@@ -9,29 +9,21 @@
     -fx-border-color: transparent;
 }
 
-.userTable {
-    -fx-background-color: #2E2E2E;
-    -fx-background-radius: 16px;
-    -fx-border-radius: 16px;
-    -fx-padding: 10px;
-    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 6, 0, 0, 2);
-}
-
-.userTable .table-row-cell {
-    -fx-text-fill: white;
-    -fx-background-color: #2A2A2A;
-    -fx-padding: 0;
-    -fx-cell-size: 32px;
-    -fx-border-width: 0;
-}
-
-.userTable .table-cell {
+.categoryLandButton, .categoryAirButton {
+    -fx-pref-width: 180px;
+    -fx-pref-height: 40px;
+    -fx-background-color: #A9A9A9;
     -fx-text-fill: white;
     -fx-font-size: 13px;
-    -fx-alignment: CENTER;
+    -fx-font-family: Arial;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+    -fx-background-radius: 20px;
+    -fx-border-radius: 20px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 2, 0, 0, 1);
 }
 
-.removeUserButton, .previousPageButton {
+.previousPageButton {
     -fx-pref-width: 220px;
     -fx-max-width: 220px;
     -fx-min-width: 220px;
@@ -47,7 +39,11 @@
     -fx-font-weight: bold;
 }
 
-.removeUserButton:hover {
+.categoryLandButton:hover {
+    -fx-background-color: #808080;
+}
+
+.categoryAirButton:hover {
     -fx-background-color: #808080;
 }
 

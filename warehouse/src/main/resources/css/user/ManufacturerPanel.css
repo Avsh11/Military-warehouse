@@ -1,0 +1,32 @@
+.anchorPane {
+    -fx-background-color: #F0F4F7;
+}
+
+.mainPanel {
+    -fx-background-color: #1E1E1E;
+    -fx-background-radius: 20px;
+    -fx-border-radius: 20px;
+    -fx-border-color: transparent;
+}
+
+.firstCompanyButton, .secondCompanyButton {
+    -fx-pref-width: 180px;
+    -fx-pref-height: 40px;
+    -fx-background-color: #A9A9A9;
+    -fx-text-fill: white;
+    -fx-font-size: 13px;
+    -fx-font-family: Arial;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+    -fx-background-radius: 20px;
+    -fx-border-radius: 20px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 2, 0, 0, 1);
+}
+
+.firstCompanyButton:hover {
+    -fx-background-color: #808080;
+}
+
+.secondCompanyButton:hover {
+    -fx-background-color: #808080;
+}

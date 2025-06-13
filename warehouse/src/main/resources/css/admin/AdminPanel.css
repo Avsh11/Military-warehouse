@@ -1,15 +1,15 @@
-.anchor-pane {
-    -fx-background-color: #f0f4f7;
+.anchorPane {
+    -fx-background-color: #F0F4F7;
 }
 
 .mainPanel {
-    -fx-background-color: #1e1e1e;
+    -fx-background-color: #1E1E1E;
     -fx-background-radius: 20px;
     -fx-border-radius: 20px;
     -fx-border-color: transparent;
 }
 
-.addUserButton {
+.addUserButton, .manageUsersButton, .manageFundsButton, .logoutButton {
     -fx-pref-width: 220px;
     -fx-max-width: 220px;
     -fx-min-width: 220px;
@@ -25,52 +25,20 @@
     -fx-font-weight: bold;
 }
 
-.manageUsersButton {
-    -fx-pref-width: 220px;
-    -fx-max-width: 220px;
-    -fx-min-width: 220px;
-    -fx-background-color: #A9A9A9;
-    -fx-text-fill: white;
-    -fx-cursor: hand;
-    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 2, 0, 0, 1);
-    -fx-border-radius: 6;
-    -fx-background-radius: 6;
-    -fx-padding: 8px;
-    -fx-font-size: 13px;
-    -fx-font-family: Arial;
-    -fx-font-weight: bold;
+.addUserButton:hover {
+    -fx-background-color: #808080;
 }
 
-.manageFundsButton {
-    -fx-pref-width: 220px;
-    -fx-max-width: 220px;
-    -fx-min-width: 220px;
-    -fx-background-color: #A9A9A9;
-    -fx-text-fill: white;
-    -fx-cursor: hand;
-    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 2, 0, 0, 1);
-    -fx-border-radius: 6;
-    -fx-background-radius: 6;
-    -fx-padding: 8px;
-    -fx-font-size: 13px;
-    -fx-font-family: Arial;
-    -fx-font-weight: bold;
+.manageUsersButton:hover {
+    -fx-background-color: #808080;
 }
 
-.logoutButton {
-    -fx-pref-width: 220px;
-    -fx-max-width: 220px;
-    -fx-min-width: 220px;
-    -fx-background-color: #A9A9A9;
-    -fx-text-fill: white;
-    -fx-cursor: hand;
-    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 2, 0, 0, 1);
-    -fx-border-radius: 6;
-    -fx-background-radius: 6;
-    -fx-padding: 8px;
-    -fx-font-size: 13px;
-    -fx-font-family: Arial;
-    -fx-font-weight: bold;
+.manageFundsButton:hover {
+    -fx-background-color: #808080;
+}
+
+.logoutButton:hover {
+    -fx-background-color: #808080;
 }
 
 .welcomeLabel {

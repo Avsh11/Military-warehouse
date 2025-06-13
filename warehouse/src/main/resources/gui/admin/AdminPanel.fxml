@@ -6,28 +6,28 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane styleClass="anchor-pane" prefHeight="500.0" prefWidth="800.0" stylesheets="@../../css/admin/AdminPanel.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.warehouse.controller.admin.AdminController">
+<AnchorPane prefHeight="500.0" prefWidth="800.0" styleClass="anchorPane" stylesheets="@../../css/admin/AdminPanel.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.warehouse.controller.admin.AdminController">
    <children>
       <VBox alignment="CENTER" layoutX="14.0" layoutY="14.0" prefHeight="350.0" prefWidth="550.0" styleClass="mainPanel" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
          <children>
-            <Label styleClass="welcomeLabel" text="Welcome back Administrator">
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="44.0" prefWidth="834.0" styleClass="welcomeLabel" text="Welcome back Administrator">
                <VBox.margin>
                   <Insets />
                </VBox.margin>
             </Label>
-            <Button fx:id="addUserButton" mnemonicParsing="false" onAction="#handleAddUserClick" styleClass="addUserButton" text="ADD USER">
+            <Button fx:id="addUserButton" maxWidth="825.0" mnemonicParsing="false" onAction="#handleAddUserClick" prefHeight="32.0" prefWidth="825.0" styleClass="addUserButton" text="ADD USER">
                <VBox.margin>
                   <Insets bottom="10.0" top="50.0" />
                </VBox.margin></Button>
-            <Button fx:id="manageUsersButton" mnemonicParsing="false" onAction="#handleRemoveUserClick" styleClass="manageUsersButton" text="REMOVE USER">
+            <Button fx:id="manageUsersButton" maxWidth="827.0" mnemonicParsing="false" onAction="#handleRemoveUserClick" prefHeight="32.0" prefWidth="827.0" styleClass="manageUsersButton" text="REMOVE USER">
                <VBox.margin>
                   <Insets bottom="10.0" />
                </VBox.margin></Button>
-            <Button fx:id="manageFundsButton" mnemonicParsing="false" onAction="#handleManageFundsClick" styleClass="manageFundsButton" text="ADD FUNDS">
+            <Button fx:id="manageFundsButton" maxWidth="827.0" mnemonicParsing="false" onAction="#handleManageFundsClick" prefHeight="32.0" prefWidth="827.0" styleClass="manageFundsButton" text="ADD FUNDS">
                <VBox.margin>
                   <Insets bottom="10.0" />
                </VBox.margin></Button>
-            <Button fx:id="logoutButton" mnemonicParsing="false" onAction="#handleLogoutClick" styleClass="logoutButton" text="LOGOUT" />
+            <Button fx:id="logoutButton" maxWidth="827.0" mnemonicParsing="false" onAction="#handleLogoutClick" prefHeight="32.0" prefWidth="827.0" styleClass="logoutButton" text="LOGOUT" />
          </children>
       </VBox>
    </children>

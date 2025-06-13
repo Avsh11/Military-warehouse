@@ -5,16 +5,21 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="600.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.warehouse.controller.user.BuyController">
+<AnchorPane prefHeight="600.0" prefWidth="400.0" styleClass="anchorPane" stylesheets="@../../css/user/BuyPanel.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.warehouse.controller.user.BuyController">
    <children>
-      <ImageView fx:id="productImage" fitHeight="150.0" fitWidth="200.0" layoutX="100.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true" />
-      <Label fx:id="buyNameLabel" layoutX="186.0" layoutY="177.0" text="name" />
-      <Label fx:id="buyPriceLabel" layoutX="186.0" layoutY="216.0" text="price" />
-      <Label fx:id="buyStockLabel" layoutX="186.0" layoutY="254.0" text="instock" />
-      <TextField fx:id="buyField" layoutX="130.0" layoutY="300.0" />
-      <Button fx:id="buyButton" layoutX="179.0" layoutY="351.0" mnemonicParsing="false" text="BUY" onAction="#handleBuyButtonClick"/>
-      <Label fx:id="finalPriceLabel" layoutX="185.0" layoutY="325.0" text="final price" />
-      <Button fx:id="previousPageButton" layoutX="179.0" layoutY="443.0" mnemonicParsing="false" text="PREVIOUS PAGE" onAction="#handlePreviousPanelClick"/>
+      <VBox alignment="CENTER" spacing="12.0" styleClass="mainPanel" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+         <children>
+            <ImageView fx:id="productImage" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" styleClass="productImage" />
+            <Label fx:id="buyNameLabel" styleClass="buyNameLabel" text="name" />
+            <Label fx:id="buyPriceLabel" styleClass="buyPriceLabel" text="price" />
+            <Label fx:id="buyStockLabel" styleClass="buyStockLabel" text="instock" />
+            <TextField fx:id="buyField" maxWidth="200.0" styleClass="buyField" />
+            <Label fx:id="finalPriceLabel" styleClass="finalPriceLabel" text="" />
+            <Button fx:id="buyButton" mnemonicParsing="false" onAction="#handleBuyButtonClick" styleClass="buyButton" text="BUY" />
+            <Button fx:id="previousPageButton" mnemonicParsing="false" onAction="#handlePreviousPanelClick" styleClass="previousPageButton" text="PREVIOUS PAGE" />
+         </children>
+      </VBox>
    </children>
 </AnchorPane>
