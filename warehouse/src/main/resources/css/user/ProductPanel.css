@@ -13,31 +13,18 @@
     -fx-effect: dropshadow(gaussian, #4CAF50, 6, 0.9, 0, 0);
 }
 
-.p1nameLabel, .p2nameLabel {
+.p1nameLabel, .p2nameLabel, .p1descLabel, .p2descLabel, .p1priceLabel, .p2priceLabel, .p1stockLabel, .p2stockLabel {
     -fx-text-fill: white;
     -fx-alignment: center;
-    -fx-font-size: 16px;
-    -fx-font-weight: bold;
+    -fx-font-family: Arial;
+    -fx-font-size: 13px;
 }
 
-.p1descLabel, .p2descLabel {
+.nameLabel, .descLabel, .priceLabel, .stockLabel {
     -fx-text-fill: white;
     -fx-alignment: center;
-    -fx-font-size: 16px;
-    -fx-font-weight: bold;
-}
-
-.p1priceLabel, .p2priceLabel {
-    -fx-text-fill: white;
-    -fx-alignment: center;
-    -fx-font-size: 16px;
-    -fx-font-weight: bold;
-}
-
-.p1stockLabel, .p2stockLabel {
-    -fx-text-fill: white;
-    -fx-alignment: center;
-    -fx-font-size: 16px;
+    -fx-font-size: 15px;
+    -fx-font-family: Arial;
     -fx-font-weight: bold;
 }
 

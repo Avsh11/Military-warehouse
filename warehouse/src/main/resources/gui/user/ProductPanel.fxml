@@ -5,40 +5,48 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
-<?import javafx.scene.layout.StackPane?>
-<AnchorPane styleClass="anchorPane" prefHeight="500.0" prefWidth="800.0" stylesheets="@../../css/user/ProductPanel.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.warehouse.controller.user.ProductController">
+<AnchorPane prefHeight="500.0" prefWidth="800.0" styleClass="anchorPane" stylesheets="@../../css/user/ProductPanel.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.warehouse.controller.user.ProductController">
    <children>
-      <VBox styleClass="mainPanel" alignment="CENTER" spacing="20.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+      <VBox alignment="CENTER" spacing="20.0" styleClass="mainPanel" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
          <children>
             <HBox alignment="CENTER" spacing="40.0">
                <VBox alignment="TOP_CENTER" spacing="5.0">
                   <children>
                      <StackPane styleClass="p1Image">
-                     <ImageView fx:id="p1imageImage" fitWidth="210.0" fitHeight="150.0" preserveRatio="false" />
+                     <ImageView fx:id="p1imageImage" fitHeight="150.0" fitWidth="210.0" preserveRatio="false" />
                      </StackPane>
-                     <Label styleClass="p1nameLabel" fx:id="p1nameLabel" text="Name" />
-                     <Label styleClass="p1descLabel" fx:id="p1descLabel" text="Description" />
-                     <Label styleClass="p1priceLabel" fx:id="p1priceLabel" text="Price" />
-                     <Label styleClass="p1stockLabel" fx:id="p1stockLabel" text="Stock" />
-                     <Button styleClass="p1buyButton" fx:id="p1buyButton" onAction="#handleBuyP1Click" text="BUY" />
+                     <Label styleClass="nameLabel" text="Product name:" />
+                     <Label fx:id="p1nameLabel" styleClass="p1nameLabel" text="" />
+                     <Label styleClass="descLabel" text="Description:" />
+                     <Label fx:id="p1descLabel" alignment="TOP_CENTER" prefHeight="40.0" prefWidth="200.0" styleClass="p1descLabel" text="" textAlignment="CENTER" wrapText="true" />
+                     <Label styleClass="priceLabel" text="Price per unit:" />
+                     <Label fx:id="p1priceLabel" styleClass="p1priceLabel" text="" />
+                     <Label styleClass="stockLabel" text="Number in stock:" />
+                     <Label fx:id="p1stockLabel" styleClass="p1stockLabel" text="" />
+                     <Button fx:id="p1buyButton" onAction="#handleBuyP1Click" styleClass="p1buyButton" text="BUY" />
                   </children>
                </VBox>
                <VBox alignment="TOP_CENTER" spacing="5.0">
                   <children>
                      <StackPane styleClass="p2Image">
-                     <ImageView fx:id="p2imageImage" fitWidth="210.0" fitHeight="150.0" preserveRatio="false" />
+                     <ImageView fx:id="p2imageImage" fitHeight="150.0" fitWidth="210.0" preserveRatio="false" />
                      </StackPane>
-                     <Label styleClass="p2nameLabel" fx:id="p2nameLabel" text="Name" />
-                     <Label styleClass="p2descLabel" fx:id="p2descLabel" text="Description" />
-                     <Label styleClass="p2priceLabel" fx:id="p2priceLabel" text="Price" />
-                     <Label styleClass="p2stockLabel" fx:id="p2stockLabel" text="Stock" />
-                     <Button styleClass="p2buyButton" fx:id="p2buyButton" onAction="#handleBuyP2Click" text="BUY" />
+                     <Label styleClass="nameLabel" text="Product name:" />
+                     <Label fx:id="p2nameLabel" styleClass="p2nameLabel" text="" />
+                     <Label styleClass="descLabel" text="Description:" />
+                     <Label fx:id="p2descLabel" alignment="TOP_CENTER" prefHeight="40.0" prefWidth="200.0" styleClass="p2descLabel" text="" textAlignment="CENTER" wrapText="true" />
+                     <Label styleClass="priceLabel" text="Price per unit:" />
+                     <Label fx:id="p2priceLabel" styleClass="p2priceLabel" text="" />
+                     <Label styleClass="stockLabel" text="Number in stock:" />
+                     <Label fx:id="p2stockLabel" styleClass="p2stockLabel" text="" />
+                     <Button fx:id="p2buyButton" onAction="#handleBuyP2Click" styleClass="p2buyButton" text="BUY" />
                   </children>
                </VBox>
             </HBox>
-            <Button styleClass="returnButton" fx:id="previousPageButton" onAction="#handlePreviousPanelClick" text="RETURN TO MENU" />
+            <Button fx:id="previousPageButton" onAction="#handlePreviousPanelClick" styleClass="returnButton" text="RETURN TO MENU" />
          </children>
       </VBox>
    </children>

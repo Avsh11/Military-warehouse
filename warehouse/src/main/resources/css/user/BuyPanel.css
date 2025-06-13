@@ -23,9 +23,16 @@
     -fx-padding: 8px;
 }
 
-.buyNameLabel, .buyPriceLabel, .buyStockLabel, .finalPriceLabel {
+.productNameLabel, .productPriceLabel, .productStockLabel, .productFinalPriceLabel {
     -fx-font-size: 13px;
     -fx-text-fill: white;
+    -fx-font-family: Arial;
+}
+
+.nameLabel, .priceLabel, .stockLabel, .finalPriceLabel {
+    -fx-text-fill: white;
+    -fx-alignment: center;
+    -fx-font-size: 15px;
     -fx-font-family: Arial;
     -fx-font-weight: bold;
 }

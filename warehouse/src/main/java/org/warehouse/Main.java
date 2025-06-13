@@ -33,6 +33,3 @@ public class Main extends Application {
 // - UML Generator.
 
 // UWAGI (dla mnie) - notatki:
-
-// Ogarnąć buga z długością opisu (rozwalające się UI)
-// Labele uzupełniające do Buya i Producta.

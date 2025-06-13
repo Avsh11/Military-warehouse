@@ -12,11 +12,15 @@
       <VBox alignment="CENTER" spacing="12.0" styleClass="mainPanel" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
          <children>
             <ImageView fx:id="productImage" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" styleClass="productImage" />
-            <Label fx:id="buyNameLabel" styleClass="buyNameLabel" text="name" />
-            <Label fx:id="buyPriceLabel" styleClass="buyPriceLabel" text="price" />
-            <Label fx:id="buyStockLabel" styleClass="buyStockLabel" text="instock" />
+            <Label styleClass="nameLabel" text="Product name:" />
+            <Label fx:id="buyNameLabel" styleClass="productNameLabel" text="" />
+            <Label styleClass="priceLabel" text="Price per unit:" />
+            <Label fx:id="buyPriceLabel" styleClass="productPriceLabel" text="" />
+            <Label styleClass="stockLabel" text="Number in stock:" />
+            <Label fx:id="buyStockLabel" styleClass="productStockLabel" text="" />
             <TextField fx:id="buyField" maxWidth="200.0" styleClass="buyField" />
-            <Label fx:id="finalPriceLabel" styleClass="finalPriceLabel" text="" />
+            <Label styleClass="finalPriceLabel" text="Final price:" />
+            <Label fx:id="finalPriceLabel" styleClass="productFinalPriceLabel" text="" />
             <Button fx:id="buyButton" mnemonicParsing="false" onAction="#handleBuyButtonClick" styleClass="buyButton" text="BUY" />
             <Button fx:id="previousPageButton" mnemonicParsing="false" onAction="#handlePreviousPanelClick" styleClass="previousPageButton" text="PREVIOUS PAGE" />
          </children>
