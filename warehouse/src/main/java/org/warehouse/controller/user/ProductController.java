@@ -18,6 +18,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -62,6 +63,18 @@ public class ProductController {
     // Wywoływane przez poprzedni kontroler (ManufacturerController) bo chcemy przekazywać dalej
     // manufacturerID.
 
+    // Metoda do formatki ceny bo w sumie zauważyłem że 98000000.00 nie wygląda zbyt dobrze
+    // i kłuje w oczy ciężko rozczytać dokładną cenę. Duży błąd wizualny.
+
+    private String handleFormatPrice(double price) {
+        DecimalFormat formatter = new DecimalFormat("#,###.##");
+
+        // W razie czego jest jeszcze reszta .## natomaist tutaj w bazie i tak mam pełne kwoty bez reszt.
+        // Dobrze mieć na uwadzę jakby był przypadek, że jednak byłby jakis produkt za 98mln,30.
+
+        return formatter.format(price).replace(",", ".");
+    }
+
     public void handleViewProducts(int manufacturerID) {
 
         this.manufacturerID = manufacturerID;
@@ -97,7 +110,7 @@ public class ProductController {
             }
             p1nameLabel.setText(products.get(0).getName());
             p1descLabel.setText(products.get(0).getProductDescription());
-            p1priceLabel.setText(String.format("%.2f $", products.get(0).getPricePerUnit()));
+            p1priceLabel.setText(handleFormatPrice(products.get(0).getPricePerUnit()) + " $");
             p1stockLabel.setText(String.valueOf(products.get(0).getInStock()));
 
             String p1Photo = products.get(0).getPhotoName();
@@ -114,7 +127,7 @@ public class ProductController {
 
             p2nameLabel.setText(products.get(1).getName());
             p2descLabel.setText(products.get(1).getProductDescription());
-            p2priceLabel.setText(String.format("%.2f $", products.get(1).getPricePerUnit()));
+            p2priceLabel.setText(handleFormatPrice(products.get(1).getPricePerUnit()) + " $");
             p2stockLabel.setText(String.valueOf(products.get(1).getInStock()));
 
             String p2Photo = products.get(1).getPhotoName();
@@ -149,6 +162,7 @@ public class ProductController {
         Parent primaryFXML = fxmlLoader.load();
         Scene scene = new Scene(primaryFXML);
         stage.setScene(scene);
+        stage.centerOnScreen();
         stage.show();
     }
 
@@ -165,6 +179,7 @@ public class ProductController {
         controller.handleSetProduct(products.get(0));
         Scene scene = new Scene(primaryFXML);
         stage.setScene(scene);
+        stage.centerOnScreen();
         stage.show();
     }
 
@@ -177,6 +192,7 @@ public class ProductController {
         controller.handleSetProduct(products.get(1));
         Scene scene = new Scene(primaryFXML);
         stage.setScene(scene);
+        stage.centerOnScreen();
         stage.show();
     }
 }

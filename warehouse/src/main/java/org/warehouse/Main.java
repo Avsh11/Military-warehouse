@@ -35,7 +35,4 @@ public class Main extends Application {
 // UWAGI (dla mnie) - notatki:
 
 // Ogarnąć buga z długością opisu (rozwalające się UI)
-// Dokończyć CSS dla pozostałych paneli.
-// Ogarnąć formatkę cen w produktach.
 // Labele uzupełniające do Buya i Producta.
-// Alert po kupieniu formatka czasu i komunikatu bug.

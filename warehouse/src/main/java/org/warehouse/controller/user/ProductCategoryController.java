@@ -44,6 +44,7 @@ public class ProductCategoryController {
             controller.handleSetManufacturer(category, nationalityID);
             Scene scene = new Scene(primaryFXML);
             stage.setScene(scene);
+            stage.centerOnScreen();
             stage.show();
         } catch (Exception e) {
             e.printStackTrace();
@@ -73,6 +74,7 @@ public class ProductCategoryController {
         Parent primaryFXML = fxmlLoader.load();
         Scene scene = new Scene(primaryFXML);
         stage.setScene(scene);
+        stage.centerOnScreen();
         stage.show();
     }
 

@@ -50,6 +50,7 @@ public class AdminController {
         Parent primaryFXML = fxmlLoader.load();
         Scene scene = new Scene(primaryFXML);
         stage.setScene(scene);
+        stage.centerOnScreen();
         stage.show();
     }
 
@@ -60,6 +61,7 @@ public class AdminController {
         Parent primaryFXML = fxmlLoader.load();
         Scene scene = new Scene(primaryFXML);
         stage.setScene(scene);
+        stage.centerOnScreen();
         stage.show();
     }
 
@@ -71,6 +73,7 @@ public class AdminController {
         Parent primaryFXML = fxmlLoader.load();
         Scene scene = new Scene(primaryFXML);
         stage.setScene(scene);
+        stage.centerOnScreen();
         stage.show();
     }
 }

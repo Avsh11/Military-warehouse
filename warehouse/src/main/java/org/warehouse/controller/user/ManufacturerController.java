@@ -85,6 +85,7 @@ public class ManufacturerController {
         controller.handleViewProducts(idCompany1);
         Scene scene = new Scene(primaryFXML);
         stage.setScene(scene);
+        stage.centerOnScreen();
         stage.show();
     }
 
@@ -97,6 +98,7 @@ public class ManufacturerController {
         controller.handleViewProducts(idCompany2);
         Scene scene = new Scene(primaryFXML);
         stage.setScene(scene);
+        stage.centerOnScreen();
         stage.show();
     }
 }

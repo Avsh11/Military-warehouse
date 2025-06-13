@@ -109,6 +109,7 @@ public class LoginController {
                     Parent primaryFXML = fxmlLoader.load();
                     Scene scene = new Scene(primaryFXML);
                     stage.setScene(scene);
+                    stage.centerOnScreen();
                     stage.show();
                 } else {
                     Stage stage = (Stage) loginButton.getScene().getWindow();
@@ -117,6 +118,7 @@ public class LoginController {
                     Scene scene = new Scene(primaryFXML);
                     scene.getStylesheets().add(getClass().getResource("/css/user/UserPanel.css").toExternalForm());
                     stage.setScene(scene);
+                    stage.centerOnScreen();
                     stage.show();
                 }
 

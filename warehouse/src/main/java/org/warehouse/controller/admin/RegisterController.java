@@ -183,6 +183,7 @@ public class RegisterController {
         Parent primaryFXML = fxmlLoader.load();
         Scene scene = new Scene(primaryFXML);
         stage.setScene(scene);
+        stage.centerOnScreen();
         stage.show();
     }
 }
