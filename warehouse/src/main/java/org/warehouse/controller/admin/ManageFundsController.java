@@ -112,10 +112,11 @@ public class ManageFundsController {
                 userList.add(users);
             }
         } catch (SQLException e) {
-
-            // Lepszy widok w razie errora. printStackTrace.
-
-            e.printStackTrace();
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText(null);
+            alert.setContentText(e.getMessage());
+            alert.showAndWait();
         }
     }
 

@@ -23,7 +23,7 @@ import java.sql.ResultSet;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-public class OrderHistoryController {
+public class OrderHistoryUserController {
 
     @FXML
     private TableView<OrderHistoryUserView> orderTable;

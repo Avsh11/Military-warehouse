@@ -39,8 +39,8 @@ public class LoginController {
 
     @FXML
     public void initialize() {
-        imageDefault = new Image(getClass().getResourceAsStream("/image/logo.png"));
-        imageMouse = new Image(getClass().getResourceAsStream("/image/secret.png"));
+        imageDefault = new Image(getClass().getResourceAsStream("/image/icons/logo.png"));
+        imageMouse = new Image(getClass().getResourceAsStream("/image/icons/secret.png"));
         logoImage.setImage(imageDefault);
     }
 

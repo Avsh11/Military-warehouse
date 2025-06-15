@@ -124,7 +124,7 @@ public class UserController {
     @FXML
     private void handleOrderHistoryClick() throws IOException {
         Stage stage = (Stage) orderHistoryButton.getScene().getWindow();
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/gui/user/OrderHistoryPanel.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/gui/user/OrderHistoryUserPanel.fxml"));
         Parent primaryFXML = fxmlLoader.load();
         Scene scene = new Scene(primaryFXML);
         stage.setScene(scene);

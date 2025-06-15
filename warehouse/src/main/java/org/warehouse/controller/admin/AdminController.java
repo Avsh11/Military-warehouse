@@ -19,6 +19,8 @@ public class AdminController {
     @FXML
     private Button manageFundsButton;
     @FXML
+    public Button orderHistoryButton;
+    @FXML
     private Button logoutButton;
 
     // Metody są osobno ponieważ daje mi to większą przejrzystość, zdaję sobie sprawę, że nie powinienem pisać
@@ -72,6 +74,17 @@ public class AdminController {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/gui/LoginPanel.fxml"));
         Parent primaryFXML = fxmlLoader.load();
         Scene scene = new Scene(primaryFXML);
+        stage.setScene(scene);
+        stage.centerOnScreen();
+        stage.show();
+    }
+
+    @FXML
+    private void handleOrderHistoryClick() throws IOException {
+        Stage stage = (Stage) orderHistoryButton.getScene().getWindow();
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/gui/admin/OrderHistoryAdminPanel.fxml"));
+        Parent root = fxmlLoader.load();
+        Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.centerOnScreen();
         stage.show();

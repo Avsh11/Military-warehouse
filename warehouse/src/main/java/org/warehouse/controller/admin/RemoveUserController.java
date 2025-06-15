@@ -75,10 +75,11 @@ public class RemoveUserController {
                 userList.add(users);
             }
         } catch (SQLException e) {
-
-            // Lepszy widok w razie errora. printStackTrace.
-
-            e.printStackTrace();
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText(null);
+            alert.setContentText(e.getMessage());
+            alert.showAndWait();
         }
     }
 
@@ -90,6 +91,11 @@ public class RemoveUserController {
             return affectedRows > 0; // true jeśli usunęło co najmniej jeden wiersz.
         } catch (SQLException e) {
             e.printStackTrace();
+//            Alert alert = new Alert(Alert.AlertType.ERROR);
+//            alert.setTitle("Error");
+//            alert.setHeaderText(null);
+//            alert.setContentText(e.getMessage());
+//            alert.showAndWait();
             return false;
         }
     }
@@ -102,9 +108,11 @@ public class RemoveUserController {
     private void handleRemoveUser() {
         RemoveUserView selectedUser = userTable.getSelectionModel().getSelectedItem();
         if (selectedUser != null) {
+            boolean ordersRemoved = handleRemoveUserOrders();
             boolean fundsRemoved = handleRemoveUserFunds();
             boolean userRemoved = handleRemoveUserMethod(selectedUser.getUserID());
-            if (userRemoved && fundsRemoved) {
+            //
+            if (userRemoved && fundsRemoved && ordersRemoved) {
                 userTable.getItems().remove(selectedUser);
             } else {
                 Alert alert = new Alert(Alert.AlertType.WARNING);
@@ -122,7 +130,30 @@ public class RemoveUserController {
         }
     }
 
+    // Usuwanie zamówień. Nie ma usera nie ma jego zamówień.
+
+    private boolean handleRemoveUserOrders() {
+        RemoveUserView selectedUser = userTable.getSelectionModel().getSelectedItem();
+        if (selectedUser != null) {
+            String sql = "DELETE FROM orders WHERE userID = ?";
+            try (Connection conn = DBConnection.getConnection(); PreparedStatement stmt = conn.prepareStatement(sql)) {
+                stmt.setInt(1, selectedUser.getUserID());
+                int affectedRows = stmt.executeUpdate();
+                return affectedRows > 0;
+            } catch (SQLException e) {
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("Error");
+                alert.setHeaderText(null);
+                alert.setContentText(e.getMessage());
+                alert.showAndWait();
+                return false;
+            }
+        }
+        return false;
+    }
+
     // Usuwanie funduszy. Nie ma usera nie ma funduszy.
+
 
     private boolean handleRemoveUserFunds() {
         RemoveUserView selectedUser = userTable.getSelectionModel().getSelectedItem();
@@ -133,7 +164,11 @@ public class RemoveUserController {
                 int affectedRows = stmt.executeUpdate();
                 return affectedRows > 0;
             } catch (SQLException e) {
-                e.printStackTrace();
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("Error");
+                alert.setHeaderText(null);
+                alert.setContentText(e.getMessage());
+                alert.showAndWait();
                 return false;
             }
         }

@@ -18,7 +18,7 @@ public class Main extends Application {
         primaryStage.setTitle("C.A.S");
         primaryStage.setScene(scene);
         primaryStage.setResizable(false);
-        primaryStage.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("/image/logo.png"))));
+        primaryStage.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("/image/icons/logo.png"))));
         primaryStage.show();
     }
     public static void main(String[] args) {

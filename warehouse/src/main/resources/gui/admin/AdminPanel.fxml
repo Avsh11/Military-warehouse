@@ -18,15 +18,23 @@
             <Button fx:id="addUserButton" maxWidth="825.0" mnemonicParsing="false" onAction="#handleAddUserClick" prefHeight="32.0" prefWidth="825.0" styleClass="addUserButton" text="ADD USER">
                <VBox.margin>
                   <Insets bottom="10.0" top="50.0" />
-               </VBox.margin></Button>
+               </VBox.margin>
+            </Button>
             <Button fx:id="manageUsersButton" maxWidth="827.0" mnemonicParsing="false" onAction="#handleRemoveUserClick" prefHeight="32.0" prefWidth="827.0" styleClass="manageUsersButton" text="REMOVE USER">
                <VBox.margin>
                   <Insets bottom="10.0" />
-               </VBox.margin></Button>
+               </VBox.margin>
+            </Button>
+            <Button fx:id="orderHistoryButton" maxWidth="827.0" mnemonicParsing="false" onAction="#handleOrderHistoryClick" prefHeight="32.0" prefWidth="827.0" styleClass="orderHistoryButton" text="ORDER HISTORY">
+               <VBox.margin>
+                  <Insets bottom="10.0" />
+               </VBox.margin>
+            </Button>
             <Button fx:id="manageFundsButton" maxWidth="827.0" mnemonicParsing="false" onAction="#handleManageFundsClick" prefHeight="32.0" prefWidth="827.0" styleClass="manageFundsButton" text="ADD FUNDS">
                <VBox.margin>
                   <Insets bottom="10.0" />
-               </VBox.margin></Button>
+               </VBox.margin>
+            </Button>
             <Button fx:id="logoutButton" maxWidth="827.0" mnemonicParsing="false" onAction="#handleLogoutClick" prefHeight="32.0" prefWidth="827.0" styleClass="logoutButton" text="LOGOUT" />
          </children>
       </VBox>

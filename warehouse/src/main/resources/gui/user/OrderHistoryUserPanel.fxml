@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane styleClass="anchorPane" prefHeight="500.0" prefWidth="800.0" stylesheets="@../../css/user/OrderHistoryPanel.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.warehouse.controller.user.OrderHistoryController">
+<AnchorPane styleClass="anchorPane" prefHeight="500.0" prefWidth="800.0" stylesheets="@../../css/user/OrderHistoryUserPanel.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.warehouse.controller.user.OrderHistoryUserController">
     <children>
         <VBox styleClass="mainPanel" alignment="CENTER" spacing="20.0" layoutX="14.0" layoutY="14.0" prefHeight="350.0" prefWidth="550.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
             <children>
