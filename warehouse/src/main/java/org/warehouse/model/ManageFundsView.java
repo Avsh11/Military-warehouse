@@ -2,14 +2,14 @@ package org.warehouse.model;
 
 import java.time.LocalDateTime;
 
-public class ManageFundsUserView {
+public class ManageFundsView {
     private int userID;
     private String loginHash;
     private LocalDateTime creationDate;
     private String country;
     private Double balance;
 
-    public ManageFundsUserView(int userID, String loginHash, LocalDateTime creationDate, String country, Double balance) {
+    public ManageFundsView(int userID, String loginHash, LocalDateTime creationDate, String country, Double balance) {
         this.userID = userID;
         this.loginHash = loginHash;
         this.creationDate = creationDate;

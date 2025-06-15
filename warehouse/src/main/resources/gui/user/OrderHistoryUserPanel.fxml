@@ -13,7 +13,7 @@
             <children>
                 <TableView styleClass="orderTable" fx:id="orderTable" prefHeight="200.0" prefWidth="560.0">
                     <columns>
-                        <TableColumn fx:id="orderIDCol" prefWidth="75.0" text="orderID" />
+                        <TableColumn fx:id="orderIDCol" prefWidth="75.0" text="Order ID" />
                         <TableColumn fx:id="productNameCol" prefWidth="75.0" text="Product name" />
                         <TableColumn fx:id="quantityCol" prefWidth="75.0" text="Order Quantity" />
                         <TableColumn fx:id="priceCol" prefWidth="75.0" text="Order Price" />

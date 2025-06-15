@@ -1,15 +1,28 @@
 @startuml
 class org.warehouse.util.UserInfo {
 }
-class org.warehouse.model.Manufacturers {
+class org.warehouse.model.ManageFundsUserView {
 }
 class org.warehouse.controller.user.ProductCategoryController {
 }
+class org.warehouse.Main {
+}
+class org.warehouse.model.OrderHistoryAdminView {
+}
+class org.warehouse.controller.user.UserController {
+}
 class org.warehouse.model.Nationality {
+}
+class org.warehouse.controller.admin.ManageFundsController {
 }
 class org.warehouse.controller.user.ProductController {
 }
-class org.warehouse.model.Orders {
+enum org.warehouse.model.ProductType {
++  LAND
++  AIR
+}
+
+class org.warehouse.controller.LoginController {
 }
 class org.warehouse.controller.admin.OrderHistoryAdminController {
 }
@@ -21,36 +34,15 @@ class org.warehouse.model.RemoveUserView {
 }
 class org.warehouse.model.Products {
 }
-class org.warehouse.model.Users {
+class org.warehouse.controller.user.BuyController {
+}
+class org.warehouse.controller.admin.RegisterController {
 }
 class org.warehouse.controller.admin.AdminController {
 }
 class org.warehouse.util.DBConnection {
 }
 class org.warehouse.controller.user.OrderHistoryUserController {
-}
-class org.warehouse.model.Funds {
-}
-class org.warehouse.model.ManageFundsUserView {
-}
-class org.warehouse.Main {
-}
-class org.warehouse.model.OrderHistoryAdminView {
-}
-class org.warehouse.controller.user.UserController {
-}
-class org.warehouse.controller.admin.ManageFundsController {
-}
-enum org.warehouse.model.ProductType {
-+  LAND
-+  AIR
-}
-
-class org.warehouse.controller.LoginController {
-}
-class org.warehouse.controller.user.BuyController {
-}
-class org.warehouse.controller.admin.RegisterController {
 }
 class org.warehouse.controller.admin.RemoveUserController {
 }

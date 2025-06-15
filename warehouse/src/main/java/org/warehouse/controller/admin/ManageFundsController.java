@@ -11,7 +11,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
-import org.warehouse.model.ManageFundsUserView;
+import org.warehouse.model.ManageFundsView;
 import org.warehouse.util.DBConnection;
 
 import java.io.IOException;
@@ -25,17 +25,17 @@ public class ManageFundsController {
 
     public static final int MAX_BALANCE = 999999999;
     @FXML
-    private TableView<ManageFundsUserView> userTable;
+    private TableView<ManageFundsView> userTable;
     @FXML
-    private TableColumn<ManageFundsUserView, Integer> idCol;
+    private TableColumn<ManageFundsView, Integer> idCol;
     @FXML
-    private TableColumn<ManageFundsUserView, String> loginCol;
+    private TableColumn<ManageFundsView, String> loginCol;
     @FXML
-    private TableColumn<ManageFundsUserView, LocalDateTime> dateCol;
+    private TableColumn<ManageFundsView, LocalDateTime> dateCol;
     @FXML
-    private TableColumn<ManageFundsUserView, String> nationalityCol;
+    private TableColumn<ManageFundsView, String> nationalityCol;
     @FXML
-    private TableColumn<ManageFundsUserView, Double> balanceCol;
+    private TableColumn<ManageFundsView, Double> balanceCol;
     @FXML
     private Button previousPageButton;
     @FXML
@@ -43,7 +43,7 @@ public class ManageFundsController {
 
     // Lista obserwowalna użytkowników żeby wyświetlić ich w tabeli.
 
-    private final ObservableList<ManageFundsUserView> userList = FXCollections.observableArrayList();
+    private final ObservableList<ManageFundsView> userList = FXCollections.observableArrayList();
 
     @FXML
     private void initialize() {
@@ -71,7 +71,7 @@ public class ManageFundsController {
 
         // Formatka do poprawnego wyświetlania funduszy (żeby nie było czegoś typu 8.3E5 itp).
 
-        balanceCol.setCellFactory(column -> new TableCell<ManageFundsUserView, Double>() {
+        balanceCol.setCellFactory(column -> new TableCell<ManageFundsView, Double>() {
             @Override
             protected void updateItem(Double item, boolean empty) {
                 super.updateItem(item, empty);
@@ -108,7 +108,7 @@ public class ManageFundsController {
         String sql = "SELECT users.userID, users.loginHash, users.creationDate, nationality.country, funds.balance FROM users JOIN nationality ON users.nationalityID = nationality.nationalityID JOIN funds ON funds.userID = users.userID WHERE users.userID != 1";
         try (Connection conn = DBConnection.getConnection(); Statement stmt = conn.createStatement(); ResultSet result = stmt.executeQuery(sql)) {
             while (result.next()) {
-                ManageFundsUserView users = new ManageFundsUserView(result.getInt("userID"), result.getString("loginHash"), result.getTimestamp("creationDate").toLocalDateTime(), result.getString("country"), result.getDouble("balance"));
+                ManageFundsView users = new ManageFundsView(result.getInt("userID"), result.getString("loginHash"), result.getTimestamp("creationDate").toLocalDateTime(), result.getString("country"), result.getDouble("balance"));
                 userList.add(users);
             }
         } catch (SQLException e) {
@@ -137,7 +137,7 @@ public class ManageFundsController {
 
         // Walidacja - co jeśli nie wybraliśmy usera któremu chcemy dodać fundusze. (klik na usera na tabeli)
 
-        ManageFundsUserView selectedUser = userTable.getSelectionModel().getSelectedItem();
+        ManageFundsView selectedUser = userTable.getSelectionModel().getSelectedItem();
         if (selectedUser == null) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error");
