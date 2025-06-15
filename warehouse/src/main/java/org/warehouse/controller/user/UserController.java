@@ -5,14 +5,26 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
+import org.warehouse.util.DBConnection;
 import org.warehouse.util.UserInfo;
 
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
 
 public class UserController {
+    @FXML
+    public Label balanceLabel;
+    @FXML
+    public Label welcomeLabel;
 
     // Inicjalizacje pól z FXMLa, buttony itd.
 
@@ -37,6 +49,28 @@ public class UserController {
         handleGermanyImage();
         handleUsaImage();
         handleUnitedkingdomImage();
+
+        String sql = "SELECT balance, loginHash FROM funds JOIN users ON funds.userID = users.userID WHERE users.userID = ?;";
+        try (Connection conn = DBConnection.getConnection(); PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setInt(1,UserInfo.userID);
+            ResultSet result = stmt.executeQuery();
+            double balance = 0;
+            String username = "";
+
+            while (result.next()) {
+                balance = result.getDouble("balance");
+                username = result.getString("loginHash");
+            }
+
+            // Formatka wyświetlania środków.
+
+            DecimalFormat formatter = new DecimalFormat("#,###.##");
+            String formattedBalance = formatter.format(balance) + " $";
+            balanceLabel.setText(formattedBalance);
+            welcomeLabel.setText("Welcome " + username);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     // Chcemy załadować panel (nowy widok) - ProductCategoryPanel i przekazać mu informacje o wybranym kraju.
